@@ -14,558 +14,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
     <link rel="stylesheet" href="../assets/styles/main.css" media="all">
-    <style>
-        /* ── TRC Static Page Styles ── */
-        *, *::before, *::after { box-sizing: border-box; }
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 300;
-            color: #212122;
-            background: #fff;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-        a { color: inherit; }
-        img { max-width: 100%; height: auto; display: block; }
-
-        /* ── Menu Button ── */
-        .trc-menu-btn {
-            position: fixed;
-            top: 28px;
-            right: 32px;
-            z-index: 200;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 300;
-            font-size: 13px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #1a1a1a;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px 0;
-            -webkit-font-smoothing: antialiased;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-        .trc-menu-btn_icon {
-            display: inline-flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 3.5px;
-            width: 18px;
-            height: 14px;
-            flex-shrink: 0;
-            margin-right: 10px;
-            position: relative;
-        }
-        .trc-menu-btn_icon span {
-            display: block;
-            height: 1.5px;
-            width: 100%;
-            background: currentColor;
-            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
-            transform-origin: center;
-        }
-        html.trc-menu-open .trc-menu-btn_icon span:nth-child(1) {
-            transform: translateY(3.25px) rotate(45deg);
-        }
-        html.trc-menu-open .trc-menu-btn_icon span:nth-child(2) { opacity: 0; }
-        html.trc-menu-open .trc-menu-btn_icon span:nth-child(3) {
-            transform: translateY(-3.25px) rotate(-45deg);
-        }
-
-        /* ── Backdrop ── */
-        .trc-menu-backdrop {
-            position: fixed;
-            inset: 0;
-            z-index: 140;
-            background: rgba(0,0,0,0.25);
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.45s ease, visibility 0s 0.45s;
-            cursor: pointer;
-        }
-        html.trc-menu-open .trc-menu-backdrop {
-            opacity: 1;
-            visibility: visible;
-            transition: opacity 0.45s ease, visibility 0s 0s;
-        }
-
-        /* ── Overlay Panel ── */
-        .trc-menu-overlay {
-            position: fixed;
-            top: 0; right: 0;
-            z-index: 150;
-            width: 420px;
-            max-width: 50vw;
-            height: 100vh;
-            height: 100dvh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            background: #fff;
-            transform: translateX(100%);
-            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
-            box-shadow: -20px 0 60px rgba(0,0,0,0.08);
-            overflow-y: auto;
-        }
-        html.trc-menu-open .trc-menu-overlay { transform: translateX(0); }
-
-        .trc-menu-content {
-            display: flex;
-            flex-direction: column;
-            padding: 80px 48px 48px;
-            flex: 1;
-        }
-        .trc-menu-nav {
-            list-style: none;
-            margin: 0 0 48px 0;
-            padding: 0;
-        }
-        .trc-menu-nav li { overflow: hidden; }
-        .trc-menu-nav a {
-            display: block;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-size: clamp(2rem, 3.5vw, 3rem);
-            font-weight: 200;
-            letter-spacing: 0.04em;
-            line-height: 1.35;
-            color: #1a1a1a;
-            text-decoration: none;
-            transform: translateX(40px);
-            opacity: 0;
-            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s ease, color 0.3s ease;
-            -webkit-font-smoothing: antialiased;
-        }
-        .trc-menu-nav a:hover { color: #888; }
-        html.trc-menu-open .trc-menu-nav a { transform: translateX(0); opacity: 1; }
-        .trc-menu-nav li:nth-child(1) a { transition-delay: 0.10s; }
-        .trc-menu-nav li:nth-child(2) a { transition-delay: 0.15s; }
-        .trc-menu-nav li:nth-child(3) a { transition-delay: 0.20s; }
-        .trc-menu-nav li:nth-child(4) a { transition-delay: 0.25s; }
-        .trc-menu-nav li:nth-child(5) a { transition-delay: 0.30s; }
-        html:not(.trc-menu-open) .trc-menu-nav a { transition-delay: 0s; }
-
-        .trc-menu-divider {
-            width: 40px;
-            height: 1px;
-            background: #ccc;
-            margin-bottom: 32px;
-        }
-        .trc-menu-info {
-            display: flex;
-            flex-direction: column;
-            opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.5s ease 0.25s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
-        }
-        html.trc-menu-open .trc-menu-info { opacity: 1; transform: translateY(0); }
-        html:not(.trc-menu-open) .trc-menu-info { transition-delay: 0s; }
-        .trc-menu-info_section { margin-bottom: 28px; }
-        .trc-menu-info_label {
-            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: #999;
-            margin-bottom: 8px;
-        }
-        .trc-menu-info p, .trc-menu-info a {
-            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 1.7;
-            color: #333;
-            text-decoration: none;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-        .trc-menu-info a:hover { color: #888; }
-        .trc-menu-social { display: flex; gap: 20px; margin-top: 6px; }
-        .trc-menu-social a {
-            font-size: 12px;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-        }
-        .trc-menu-lang {
-            display: flex;
-            gap: 16px;
-            padding: 0 48px 32px;
-            opacity: 0;
-            transition: opacity 0.4s ease 0.3s;
-        }
-        html.trc-menu-open .trc-menu-lang { opacity: 1; }
-        html:not(.trc-menu-open) .trc-menu-lang { transition-delay: 0s; }
-        .trc-menu-lang a {
-            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        .trc-menu-lang a.is-active { color: #1a1a1a; }
-        .trc-menu-lang a:hover { color: #1a1a1a; }
-        html.trc-menu-open { overflow: hidden; }
-
-        @media (max-width: 768px) {
-            .trc-menu-overlay { width: 85vw; max-width: none; }
-            .trc-menu-content { padding: 72px 28px 28px; }
-            .trc-menu-lang { padding: 0 28px 24px; }
-            .trc-menu-btn { top: 20px; right: 20px; }
-        }
-
-        /* ── Page Layout ── */
-        .trc-page-hero {
-            position: relative;
-            width: 100%;
-            height: 70vh;
-            min-height: 400px;
-            overflow: hidden;
-            background: #111;
-        }
-        .trc-page-hero img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
-        .trc-page-hero_overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
-            display: flex;
-            align-items: flex-end;
-            padding: 4rem 5vw;
-        }
-        .trc-page-hero_title {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            letter-spacing: 0.06em;
-            color: #fff;
-            margin: 0;
-            -webkit-font-smoothing: antialiased;
-        }
-        .trc-page-hero_cats {
-            display: flex;
-            gap: 12px;
-            margin-top: 1rem;
-        }
-        .trc-page-hero_cat {
-            font-size: 11px;
-            font-weight: 400;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,0.8);
-            border: 1px solid rgba(255,255,255,0.3);
-            padding: 4px 14px;
-            border-radius: 2px;
-        }
-
-        /* ── Content Area ── */
-        .trc-content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 4rem 5vw 3rem;
-            font-size: 1rem;
-            line-height: 1.85;
-        }
-        .trc-content h1, .trc-content h2, .trc-content h3, .trc-content h4 {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            letter-spacing: 0.03em;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .trc-content h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
-        .trc-content h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
-        .trc-content h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; }
-        .trc-content h4 { font-size: 1.1rem; font-weight: 300; }
-        .trc-content p { margin-bottom: 1.5rem; }
-        .trc-content a { text-decoration: underline; text-underline-offset: 3px; }
-        .trc-content a:hover { opacity: 0.6; }
-        .trc-content ul, .trc-content ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
-        .trc-content li { margin-bottom: 0.5rem; }
-        .trc-content img {
-            border-radius: 2px;
-            margin: 2rem 0;
-        }
-        .trc-content blockquote {
-            border-left: 2px solid #ddd;
-            margin: 2rem 0;
-            padding: 1rem 2rem;
-            font-style: italic;
-            color: #555;
-        }
-
-        /* ── Image Gallery ── */
-        .trc-gallery {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 5vw 5rem;
-        }
-        .trc-gallery h2 {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: 1.4rem;
-            letter-spacing: 0.06em;
-            margin-bottom: 2rem;
-            color: #999;
-        }
-        .trc-gallery_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 12px;
-        }
-        .trc-gallery_item {
-            overflow: hidden;
-            border-radius: 2px;
-            aspect-ratio: 4/3;
-        }
-        .trc-gallery_item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-        }
-        .trc-gallery_item:hover img {
-            transform: scale(1.04);
-        }
-
-        /* ── Back Link ── */
-        .trc-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.6em;
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 300;
-            font-size: 0.8rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: #999;
-            text-decoration: none;
-            padding: 2rem 5vw;
-            transition: color 0.3s ease;
-        }
-        .trc-back:hover { color: #212122; }
-        .trc-back svg {
-            width: 16px; height: 16px;
-            stroke: currentColor; stroke-width: 1.5; fill: none;
-        }
-
-        /* ── Article Meta ── */
-        .trc-article-meta {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        .trc-article-date {
-            font-size: 0.82rem;
-            color: #999;
-            letter-spacing: 0.04em;
-        }
-        .trc-article-cat {
-            font-size: 10px;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: #666;
-            border: 1px solid #ddd;
-            padding: 3px 12px;
-            border-radius: 2px;
-            text-decoration: none !important;
-        }
-
-        /* ── Grid Listings ── */
-        .trc-listing {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem 5vw 5rem;
-        }
-        .trc-listing_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2rem;
-        }
-        .trc-listing_card {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-        .trc-listing_card_img {
-            overflow: hidden;
-            border-radius: 2px;
-            aspect-ratio: 16/10;
-            background: #f0f0f0;
-        }
-        .trc-listing_card_img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
-        }
-        .trc-listing_card:hover .trc-listing_card_img img {
-            transform: scale(1.04);
-        }
-        .trc-listing_card_body {
-            padding: 1rem 0;
-        }
-        .trc-listing_card_title {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: 1.15rem;
-            letter-spacing: 0.02em;
-            margin: 0 0 0.5rem;
-        }
-        .trc-listing_card_excerpt {
-            font-size: 0.85rem;
-            line-height: 1.6;
-            color: #777;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .trc-listing_card_date {
-            font-size: 0.75rem;
-            color: #aaa;
-            margin-bottom: 0.3rem;
-        }
-        .trc-listing_card_cats {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 0.5rem;
-        }
-        .trc-listing_card_cats span {
-            font-size: 9px;
-            font-weight: 500;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #999;
-        }
-
-        /* ── Section Header ── */
-        .trc-section-header {
-            padding: 8rem 5vw 3rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .trc-section-header h1 {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: clamp(2.2rem, 4vw, 3.5rem);
-            letter-spacing: 0.06em;
-            margin: 0 0 1rem;
-            -webkit-font-smoothing: antialiased;
-        }
-        .trc-section-header p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #777;
-            max-width: 560px;
-        }
-
-        /* ── Contact Page ── */
-        .trc-contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 3rem 5vw 5rem;
-        }
-        .trc-contact-item h3 {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: 1.3rem;
-            letter-spacing: 0.04em;
-            margin-bottom: 1rem;
-        }
-        .trc-contact-item p {
-            font-size: 0.95rem;
-            line-height: 1.8;
-            color: #555;
-        }
-        .trc-contact-item a {
-            text-decoration: none;
-            border-bottom: 1px solid rgba(0,0,0,0.15);
-            padding-bottom: 2px;
-            transition: border-color 0.3s ease;
-        }
-        .trc-contact-item a:hover { border-color: rgba(0,0,0,0.6); }
-
-        /* ── Related Posts ── */
-        .trc-related {
-            background: #f7f8f9;
-            padding: 4rem 5vw;
-            margin-top: 3rem;
-        }
-        .trc-related h2 {
-            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
-            font-weight: 200;
-            font-size: 1.5rem;
-            letter-spacing: 0.06em;
-            margin-bottom: 2.5rem;
-            text-align: center;
-        }
-        .trc-related_grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* ── Footer ── */
-        .trc-footer {
-            background: #111;
-            color: #999;
-            padding: 3rem 5vw 2rem;
-            font-size: 0.82rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .trc-footer a { color: #ccc; text-decoration: none; }
-        .trc-footer a:hover { color: #fff; }
-
-        /* ── Services page specific ── */
-        .trc-services-page {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 4rem 5vw 5rem;
-        }
-
-        @media (max-width: 768px) {
-            .trc-page-hero { height: 50vh; min-height: 300px; }
-            .trc-page-hero_overlay { padding: 2rem 5vw; }
-            .trc-gallery_grid { grid-template-columns: 1fr; }
-            .trc-listing_grid { grid-template-columns: 1fr; }
-            .trc-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .trc-section-header { padding-top: 5rem; }
-        }
-
-    </style>
+    <style>*,*::before,*::after{box-sizing:border-box}body{margin:0;font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:300;color:#212122;background:#fff;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}a{color:inherit}img{max-width:100%;height:auto;display:block}.trc-menu-btn{position:fixed;top:28px;right:32px;z-index:200;display:inline-flex;align-items:center;gap:8px;font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:300;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#1a1a1a;background:none;border:none;cursor:pointer;padding:8px 0;-webkit-font-smoothing:antialiased;-webkit-appearance:none;appearance:none}.trc-menu-btn_icon{display:inline-flex;flex-direction:column;justify-content:center;gap:3.5px;width:18px;height:14px;flex-shrink:0;margin-right:10px;position:relative}.trc-menu-btn_icon span{display:block;height:1.5px;width:100%;background:currentColor;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1),opacity 0.25s ease;transform-origin:center}html.trc-menu-open .trc-menu-btn_icon span:nth-child(1){transform:translateY(3.25px) rotate(45deg)}html.trc-menu-open .trc-menu-btn_icon span:nth-child(2){opacity:0}html.trc-menu-open .trc-menu-btn_icon span:nth-child(3){transform:translateY(-3.25px) rotate(-45deg)}.trc-menu-backdrop{position:fixed;inset:0;z-index:140;background:rgba(0,0,0,0.25);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:opacity 0.45s ease,visibility 0s 0.45s;cursor:pointer}html.trc-menu-open .trc-menu-backdrop{opacity:1;visibility:visible;transition:opacity 0.45s ease,visibility 0s 0s}.trc-menu-overlay{position:fixed;top:0;right:0;z-index:150;width:420px;max-width:50vw;height:100vh;height:100dvh;display:flex;flex-direction:column;justify-content:space-between;background:#fff;transform:translateX(100%);transition:transform 0.55s cubic-bezier(0.16,1,0.3,1);box-shadow:-20px 0 60px rgba(0,0,0,0.08);overflow-y:auto}html.trc-menu-open .trc-menu-overlay{transform:translateX(0)}.trc-menu-content{display:flex;flex-direction:column;padding:80px 48px 48px;flex:1}.trc-menu-nav{list-style:none;margin:0 0 48px 0;padding:0}.trc-menu-nav li{overflow:hidden}.trc-menu-nav a{display:block;font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:200;letter-spacing:0.04em;line-height:1.35;color:#1a1a1a;text-decoration:none;transform:translateX(40px);opacity:0;transition:transform 0.55s cubic-bezier(0.16,1,0.3,1),opacity 0.45s ease,color 0.3s ease;-webkit-font-smoothing:antialiased}.trc-menu-nav a:hover{color:#888}html.trc-menu-open .trc-menu-nav a{transform:translateX(0);opacity:1}.trc-menu-nav li:nth-child(1) a{transition-delay:0.10s}.trc-menu-nav li:nth-child(2) a{transition-delay:0.15s}.trc-menu-nav li:nth-child(3) a{transition-delay:0.20s}.trc-menu-nav li:nth-child(4) a{transition-delay:0.25s}.trc-menu-nav li:nth-child(5) a{transition-delay:0.30s}html:not(.trc-menu-open) .trc-menu-nav a{transition-delay:0s}.trc-menu-divider{width:40px;height:1px;background:#ccc;margin-bottom:32px}.trc-menu-info{display:flex;flex-direction:column;opacity:0;transform:translateY(15px);transition:opacity 0.5s ease 0.25s,transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s}html.trc-menu-open .trc-menu-info{opacity:1;transform:translateY(0)}html:not(.trc-menu-open) .trc-menu-info{transition-delay:0s}.trc-menu-info_section{margin-bottom:28px}.trc-menu-info_label{font-family:"Maison Neue",-apple-system,"Helvetica Neue",helvetica,arial,sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:#999;margin-bottom:8px}.trc-menu-info p,.trc-menu-info a{font-family:"Maison Neue",-apple-system,"Helvetica Neue",helvetica,arial,sans-serif;font-size:14px;font-weight:300;line-height:1.7;color:#333;text-decoration:none;margin:0;-webkit-font-smoothing:antialiased}.trc-menu-info a:hover{color:#888}.trc-menu-social{display:flex;gap:20px;margin-top:6px}.trc-menu-social a{font-size:12px;letter-spacing:0.06em;text-transform:uppercase}.trc-menu-lang{display:flex;gap:16px;padding:0 48px 32px;opacity:0;transition:opacity 0.4s ease 0.3s}html.trc-menu-open .trc-menu-lang{opacity:1}html:not(.trc-menu-open) .trc-menu-lang{transition-delay:0s}.trc-menu-lang a{font-family:"Maison Neue",-apple-system,"Helvetica Neue",helvetica,arial,sans-serif;font-size:11px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:#aaa;text-decoration:none;transition:color 0.3s ease}.trc-menu-lang a.is-active{color:#1a1a1a}.trc-menu-lang a:hover{color:#1a1a1a}html.trc-menu-open{overflow:hidden}@media (max-width:768px){.trc-menu-overlay{width:85vw;max-width:none}.trc-menu-content{padding:72px 28px 28px}.trc-menu-lang{padding:0 28px 24px}.trc-menu-btn{top:20px;right:20px}}.trc-page-hero{position:relative;width:100%;height:70vh;min-height:400px;overflow:hidden;background:#111}.trc-page-hero img{width:100%;height:100%;object-fit:cover;object-position:center}.trc-page-hero_overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.5) 100%);display:flex;align-items:flex-end;padding:4rem 5vw}.trc-page-hero_title{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:clamp(2rem,4vw,3.5rem);letter-spacing:0.06em;color:#fff;margin:0;-webkit-font-smoothing:antialiased}.trc-page-hero_cats{display:flex;gap:12px;margin-top:1rem}.trc-page-hero_cat{font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.3);padding:4px 14px;border-radius:2px}.trc-content{max-width:860px;margin:0 auto;padding:4rem 5vw 3rem;font-size:1rem;line-height:1.85}.trc-content h1,.trc-content h2,.trc-content h3,.trc-content h4{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;letter-spacing:0.03em;margin-top:2.5rem;margin-bottom:1rem}.trc-content h1{font-size:clamp(1.8rem,3vw,2.6rem)}.trc-content h2{font-size:clamp(1.4rem,2.5vw,2rem)}.trc-content h3{font-size:clamp(1.2rem,2vw,1.5rem);font-weight:300}.trc-content h4{font-size:1.1rem;font-weight:300}.trc-content p{margin-bottom:1.5rem}.trc-content a{text-decoration:underline;text-underline-offset:3px}.trc-content a:hover{opacity:0.6}.trc-content ul,.trc-content ol{padding-left:1.5rem;margin-bottom:1.5rem}.trc-content li{margin-bottom:0.5rem}.trc-content img{border-radius:2px;margin:2rem 0}.trc-content blockquote{border-left:2px solid #ddd;margin:2rem 0;padding:1rem 2rem;font-style:italic;color:#555}.trc-gallery{max-width:1200px;margin:0 auto;padding:2rem 5vw 5rem}.trc-gallery h2{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:1.4rem;letter-spacing:0.06em;margin-bottom:2rem;color:#999}.trc-gallery_grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}.trc-gallery_item{overflow:hidden;border-radius:2px;aspect-ratio:4/3}.trc-gallery_item img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}.trc-gallery_item:hover img{transform:scale(1.04)}.trc-back{display:inline-flex;align-items:center;gap:0.6em;font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:300;font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:#999;text-decoration:none;padding:2rem 5vw;transition:color 0.3s ease}.trc-back:hover{color:#212122}.trc-back svg{width:16px;height:16px;stroke:currentColor;stroke-width:1.5;fill:none}.trc-article-meta{display:flex;align-items:center;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap}.trc-article-date{font-size:0.82rem;color:#999;letter-spacing:0.04em}.trc-article-cat{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:#666;border:1px solid #ddd;padding:3px 12px;border-radius:2px;text-decoration:none !important}.trc-listing{max-width:1400px;margin:0 auto;padding:2rem 5vw 5rem}.trc-listing_grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:2rem}.trc-listing_card{text-decoration:none;color:inherit;display:block}.trc-listing_card_img{overflow:hidden;border-radius:2px;aspect-ratio:16/10;background:#f0f0f0}.trc-listing_card_img img{width:100%;height:100%;object-fit:cover;transition:transform 0.6s cubic-bezier(0.16,1,0.3,1)}.trc-listing_card:hover .trc-listing_card_img img{transform:scale(1.04)}.trc-listing_card_body{padding:1rem 0}.trc-listing_card_title{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:1.15rem;letter-spacing:0.02em;margin:0 0 0.5rem}.trc-listing_card_excerpt{font-size:0.85rem;line-height:1.6;color:#777;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.trc-listing_card_date{font-size:0.75rem;color:#aaa;margin-bottom:0.3rem}.trc-listing_card_cats{display:flex;gap:8px;flex-wrap:wrap;margin-top:0.5rem}.trc-listing_card_cats span{font-size:9px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#999}.trc-section-header{padding:8rem 5vw 3rem;max-width:1400px;margin:0 auto}.trc-section-header h1{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:clamp(2.2rem,4vw,3.5rem);letter-spacing:0.06em;margin:0 0 1rem;-webkit-font-smoothing:antialiased}.trc-section-header p{font-size:1rem;line-height:1.7;color:#777;max-width:560px}.trc-contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;max-width:1100px;margin:0 auto;padding:3rem 5vw 5rem}.trc-contact-item h3{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:1.3rem;letter-spacing:0.04em;margin-bottom:1rem}.trc-contact-item p{font-size:0.95rem;line-height:1.8;color:#555}.trc-contact-item a{text-decoration:none;border-bottom:1px solid rgba(0,0,0,0.15);padding-bottom:2px;transition:border-color 0.3s ease}.trc-contact-item a:hover{border-color:rgba(0,0,0,0.6)}.trc-related{background:#f7f8f9;padding:4rem 5vw;margin-top:3rem}.trc-related h2{font-family:"Helvetica Neue",helvetica,arial,sans-serif;font-weight:200;font-size:1.5rem;letter-spacing:0.06em;margin-bottom:2.5rem;text-align:center}.trc-related_grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:2rem;max-width:1200px;margin:0 auto}.trc-footer{background:#111;color:#999;padding:3rem 5vw 2rem;font-size:0.82rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}.trc-footer a{color:#ccc;text-decoration:none}.trc-footer a:hover{color:#fff}.trc-services-page{max-width:1000px;margin:0 auto;padding:4rem 5vw 5rem}@media (max-width:768px){.trc-page-hero{height:50vh;min-height:300px}.trc-page-hero_overlay{padding:2rem 5vw}.trc-gallery_grid{grid-template-columns:1fr}.trc-listing_grid{grid-template-columns:1fr}.trc-contact-grid{grid-template-columns:1fr;gap:2rem}.trc-section-header{padding-top:5rem}}</style>
 </head>
 <body>
     
-    <!-- Menu -->
+    
     <button class="trc-menu-btn" id="trcMenuBtn" type="button" aria-label="Menu">
         <span class="trc-menu-btn_icon">
             <span></span><span></span><span></span>
@@ -614,7 +67,6 @@
         </div>
     </div>
 
-
     <section class="trc-page-hero">
         <img src="../assets/images/wp-content/uploads/2024/09/Image7-min-1.webp" alt="Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos">
         <div class="trc-page-hero_overlay">
@@ -634,175 +86,91 @@
             <span class="trc-article-date">3 Abril 2026</span>
             <span class="trc-article-cat">Investimento Imobiliário</span><span class="trc-article-cat">Técnico &amp; BIM</span>
         </div>
-        <!-- wp:paragraph -->
+        
 <p>O mercado imobiliário em Portugal em 2026 exige mais do que apenas "construir e vender". Com a maturidade do setor e a estabilização das taxas de juro, a criação de condomínios de habitação tornou-se uma das formas mais seguras e rentáveis de multiplicar capital. Se é um investidor à procura de ativos de elevada liquidez ou um particular com um ativo imobiliário por explorar, este guia detalha o caminho desde a viabilidade até à entrega das chaves.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>1. O Novo Cenário do Licenciamento (Simplex 2026)</h2>
-<!-- /wp:heading -->
 
-<!-- wp:heading {"level":3} -->
 <h3>A Eliminação das Barreiras Administrativas</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>A grande barreira à criação de condomínios de habitação era o tempo de espera e a complexidade administrativa. A reforma do Simplex Urbanístico de 2026 reduziu significativamente os procedimentos de licenciamento, acelerando projetos que anteriormente demoravam 18 a 24 meses em aprovação. Para promotores que entendem esta transformação regulatória, a oportunidade é imediata.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>O novo regime consolida o procedimento de licença única junto do município, integrando pareceres de infraestruturas (saneamento, energia, telecomunicações) num único fluxo. Isto significa que projetos de condomínios habitação com densidade média a alta passam de ciclos de 12-18 meses para 8-12 meses, libertando capital mais cedo e reduzindo custos de gestão do processo.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Conformidade com RJUE e RJIGT</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>O Regime Jurídico da Urbanização e Edificação (RJUE) de 2019 consolidou regras que ainda hoje definem a viabilidade de condomínios. A definição de lote, afastamentos obrigatórios, coeficientes de utilização do solo e densidade populacional continuam a ser critérios determinantes para a aprovação municipal. Não é suficiente ter uma parcela de terreno; é preciso compreender o enquadramento legal específico de cada localização.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>O Regulamento Jurídico dos Instrumentos de Gestão Territorial (RJIGT) oferece ainda margens para interpretação local. Câmaras municipais em Lisboa, por exemplo, têm planos diretores que incentivam a construção de condomínios habitação em zonas de reabilitação urbana com densidades superiores à média nacional, desde que respeitando limites de gabarito e impacto viário.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Metodologia BIM: O Diferencial no Licenciamento</h3>
-<!-- /wp:heading -->
 
-<!-- wp:quote -->
 <blockquote class="wp-block-quote"><p><strong>Nota do Especialista:</strong> No atelier Tiago R. Correia, utilizamos a metodologia BIM (Building Information Modeling) para garantir que o projeto entregue à câmara é rigoroso, completo e otimizado. A modelação paramétrica permite validar conformidade regulatória antes da submissão, evitando pedidos de esclarecimento que atrasam a obra e aumentam custos.</p></blockquote>
-<!-- /wp:quote -->
 
-<!-- wp:paragraph -->
 <p>Com BIM, o projeto é entregue acompanhado de documentação técnica integrada: plantas, cortes, alçados, maquetes 3D e simulações de impacto viário. Isto reduz o risco de devoluções administrativas em até 60%, comparado com metodologia tradicional CAD.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>2. Definir o Modelo de Condomínio: Onde está a Rentabilidade?</h2>
-<!-- /wp:heading -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Análise de Mercado: Tipologias Rentáveis em 2026</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>Para obter retornos sólidos em condomínios de habitação, é fundamental compreender as tendências de procura atuais e o comportamento do mercado Lisboa-Porto-Algarve.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Condomínios de Luxo Sustentáveis:</strong> Este segmento continua a crescer, especialmente em Lisboa. Unidades com eficiência energética classe A+ e certificação LEED ou equivalente atingem prémios de 10-15% face ao mercado standard. O investidor institucional (fundos imobiliários, family offices) procura ativos com certificações ambientais e baixo custo operacional a longo prazo.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Soluções de Co-living e Flex Living:</strong> A procura de unidades compactas com áreas comuns partilhadas premium (coworking, ginásio, espaços de eventos) cresceu 35% no biénio 2024-2026. Este modelo é ideal para habitação de arrendamento dirigida a profissionais jovens, nómadas digitais e startups.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Condomínios de Reabilitação com Incentivos Fiscais:</strong> A conversão de edifícios históricos em frações modernas mantém-se uma estratégia forte. O enquadramento fiscal do RJUE permite redução de IMT e Imposto de Selo para reabilitação em áreas urbanas consolidadas.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Posicionamento no Mercado e Análise de Concorrência</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>Antes de avançar com licenciamento, é fundamental fazer análise comparativa de condomínios similares na zona geográfica. Isto inclui: preço por metro quadrado, tipologias disponíveis (T1, T2, T3), áreas de garagem, amenidades comuns, densidade populacional e taxa de ocupação. Em Lisboa, a procura por T2 com garagem aumentou 28% desde 2023, enquanto a oferta mantém-se constante.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>3. As Fases Críticas do Projeto</h2>
-<!-- /wp:heading -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Cronologia de Execução de um Condomínio Típico</h3>
-<!-- /wp:heading -->
 
-<!-- wp:table -->
 <figure class="wp-block-table"><table><thead><tr><th>Fase</th><th>Duração Típica</th><th>Actividades Principais</th><th>Marcos Críticos</th></tr></thead><tbody><tr><td><strong>Estudo de Viabilidade</strong></td><td>4-6 semanas</td><td>Análise da parcela, levantamento topográfico, conceito preliminar, análise de custos</td><td>Aprovação interna do Business Case</td></tr><tr><td><strong>Conceito e Arquitectura</strong></td><td>8-12 semanas</td><td>Projecto arquitectónico completo, especialidades, orçamento refinado</td><td>Aprovação do projecto pelo investidor</td></tr><tr><td><strong>Licenciamento</strong></td><td>8-12 semanas</td><td>Submissão à câmara, pedidos de esclarecimento, aprovação final</td><td>Obtenção da Licença de Construção</td></tr><tr><td><strong>Construção e Fiscalização</strong></td><td>18-24 meses</td><td>Obra civil, instalações técnicas, acabamentos, inspecções periódicas</td><td>Conclusão técnica e Atestado de Director de Obra</td></tr><tr><td><strong>Comercialização e Entrega</strong></td><td>3-6 meses (paralelo)</td><td>Abertura de vendas, assinatura de contratos, entrega de fracções</td><td>Registo predial de cada fracção</td></tr></tbody></table></figure>
-<!-- /wp:table -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Gestão de Prazos e Contingência</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>A prática demonstra que projetos com margem de segurança de 15-20% nos cronogramas completam dentro do prazo. Em 2026, a instabilidade nas cadeias de fornecimento de materiais de construção mantém-se uma variável. Promotores que contratam fornecedores com 4-6 meses de antecipação reduzem risco de atrasos.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:quote -->
 <blockquote class="wp-block-quote"><p><strong>Nota do Especialista:</strong> A ausência de documentação técnica completa é uma das causas mais frequentes de conflitos pós-venda entre proprietários e promotores. Investir em conformidade durante a obra economiza custos jurídicos posteriores.</p></blockquote>
-<!-- /wp:quote -->
 
-<!-- wp:heading -->
 <h2>4. Estratégias de Financiamento e Parcerias</h2>
-<!-- /wp:heading -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Modelos de Capital e Estruturação Financeira</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>Em 2026, não precisa de financiar 100% do capital próprio. O mercado imobiliário português consolidou modelos alternativos de estruturação financeira que reduzem exposição ao risco de taxa de juro e aceleram retorno de capital.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Equity Crowdfunding Imobiliário</strong> permite que um promotor lance condomínios com 20-30% de capital próprio, captando o restante junto de investidores privados regulados pela CMVM.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Permuta com Proprietários de Terrenos</strong> é ainda mais estratégica. Se o promotor não possui o terreno, oferecer uma percentagem de frações futuras (20-35% do valor final) ao proprietário elimina a necessidade de capital inicial significativo.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Parcerias com Fundos Imobiliários Institucionais</strong> estruturam-se com modelos de desenvolvimento: o fundo financia 70-80% do projeto, o promotor contribui com 20-30% e recebe uma percentagem de retorno pré-acordada (15-20% sobre margem bruta).</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading {"level":3} -->
 <h3>Apresentação do Business Case ao Investidor</h3>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>A chave para atrair capital para o seu projeto é apresentar um Business Case sólido com: análise de mercado local, modelação financeira com múltiplos cenários, cronograma detalhado com milestones de cash flow, análise de sensibilidade e certificações ambientais. Investidores institucionais analisam o retorno esperado (TIR) — um projeto com TIR de 18-22% é considerado atrativo no mercado português.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>5. Porquê o Apoio Técnico é o seu Maior Ativo?</h2>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>Erros no projeto de especialidades ou uma má interpretação do regulamento do condomínio podem destruir a margem de lucro. Investir em revisão técnica rigorosa durante conceito e licenciamento economiza 5-10% dos custos de obra.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Através de análise paramétrica, é possível: aumentar a área vendável em 5-8% sem alterar a envolvente do edifício, reduzir custos de MEP em 10-15% através de design inteligente de infraestruturas, e acelerar licenciamento em 2-4 semanas com submissão completa e conforme. Estas otimizações traduzem-se em margem operacional adicional de 200 a 400 mil euros num projeto de 40-50 frações.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>6. Erros Mais Comuns (e Como os Evitar)</h2>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p><strong>Análise de Viabilidade Insuficiente:</strong> Submeter um projeto a licenciamento sem análise completa de impacto viário ou consulta prévia informal à câmara resulta em pedidos de esclarecimento que atrasam 6-12 semanas.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Subestimar Custos de Construção:</strong> Preços de materiais e mão de obra flutuam. Projetos orçamentados em 2024 podem ter variações de 8-12% em 2026. Adicione sempre contingência de 10-15%.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Design sem Gestão em Mente:</strong> Condomínios com fachadas de manutenção cara ou sistemas centralizados geram custos anuais de 3-5% do valor imobiliário, afetando o resale value.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Ignorar a Comercialização Durante a Obra:</strong> Promotores bem-sucedidos abrem pré-vendas 6-9 meses antes da conclusão técnica. Gera cash flow antecipado e valida conceito junto do mercado.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:heading -->
 <h2>7. Checklist: Os 10 Passos Para Lançar o Seu Condomínio</h2>
-<!-- /wp:heading -->
 
-<!-- wp:list {"ordered":true} -->
 <ol>
 <li><strong>Análise de Viabilidade Completa</strong> — Topografia, sondagens geotécnicas, consulta informal à câmara. Investimento típico: 5-8 mil euros. Prazo: 4-6 semanas.</li>
 <li><strong>Estrutura Jurídica e Financeira</strong> — Definir modelo de capital, parcerias, estrutura legal (SPV). Prazo: 2-4 semanas.</li>
@@ -815,35 +183,21 @@
 <li><strong>Execução de Obra com Oversight Técnico</strong> — Acompanhamento periódico, conformidade regulatória. Prazo: 18-24 meses.</li>
 <li><strong>Conclusão e Entrega de Fracções</strong> — Atestado de Director de Obra, Livro de Conformidade, entrega de chaves, registo predial. Prazo: 2-4 semanas.</li>
 </ol>
-<!-- /wp:list -->
 
-<!-- wp:heading -->
 <h2>Conclusão: Transformar Visão em Retorno</h2>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>O mercado de condomínios habitação em Portugal oferece oportunidades sólidas para investidores que compreendem o framework técnico, regulatório e financeiro. O sucesso depende de escolhas correctas nas fases iniciais: viabilidade, conceito, licenciamento. Depois, execução disciplinada e gestão de stakeholders mantêm o projeto no caminho.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:separator -->
 <hr class="wp-block-separator"/>
-<!-- /wp:separator -->
 
-<!-- wp:heading -->
 <h2>Pronto para transformar o seu terreno ou visão num condomínio de referência?</h2>
-<!-- /wp:heading -->
 
-<!-- wp:paragraph -->
 <p>A equipa de Tiago R. Correia Arquitectos especializa-se em transformar desafios urbanísticos em oportunidades de investimento de alto valor. Desde análise preliminar até licenciamento e acompanhamento de obra, utilizamos metodologia BIM para garantir conformidade regulatória, optimização de custos e execução no prazo.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p><strong>Oferta:</strong> Análise preliminar de viabilidade gratuita para projetos de condomínios habitação em Lisboa e região metropolitana.</p>
-<!-- /wp:paragraph -->
 
-<!-- wp:paragraph -->
 <p>Fale connosco para avaliar o potencial do seu projeto. <a href="mailto:geral@tiagorcorreia.com?subject=Condom%C3%ADnios%20%E2%80%94%20Pedido%20de%20An%C3%A1lise">Contacte-nos aqui</a></p>
-<!-- /wp:paragraph -->
+
     </article>
 
     <section class="trc-related">
@@ -893,21 +247,19 @@
     </footer>
 
     
-    <script>
-    (function() {
-        var html = document.documentElement;
-        var btn = document.getElementById('trcMenuBtn');
-        var backdrop = document.getElementById('trcMenuBackdrop');
-        var overlay = document.getElementById('trcMenuOverlay');
-        if (!btn || !overlay) return;
-        function closeMenu() { html.classList.remove('trc-menu-open'); }
-        btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
-        if (backdrop) backdrop.addEventListener('click', closeMenu);
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
-        });
-    })();
-    </script>
+    <script>(function() {
+var html = document.documentElement;
+var btn = document.getElementById('trcMenuBtn');
+var backdrop = document.getElementById('trcMenuBackdrop');
+var overlay = document.getElementById('trcMenuOverlay');
+if (!btn || !overlay) return;
+function closeMenu() { html.classList.remove('trc-menu-open'); }
+btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
+if (backdrop) backdrop.addEventListener('click', closeMenu);
+document.addEventListener('keydown', function(e) {
+if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
+});
+})();</script>
 
 </body>
 </html>

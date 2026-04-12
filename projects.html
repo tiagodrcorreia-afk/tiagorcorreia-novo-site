@@ -1,9 +1,10 @@
 <!doctype html>
 <!--[if lt IE 9]><html class="no-js no-svg ie lt-ie9 lt-ie8 lt-ie7" lang="en-CA"> <![endif]-->
 <!--[if IE 9]><html class="no-js no-svg ie ie9 lt-ie9 lt-ie8" lang="en-CA"> <![endif]-->
-<!--[if gt IE 9]><!--><html class="no-js no-svg" lang="en-CA" data-template="projects"> <!--<![endif]-->
+<!--[if gt IE 9]>
 <head>
     <meta charset="UTF-8" />
+    <link rel="preload" href="assets/styles/main.css" as="style">
     <link rel="stylesheet" href="assets/styles/main.css" type="text/css" media="screen" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,6 +27,7 @@
     <meta property="og:title" content="Projects" />
     <meta property="og:image" content="https://htarchitecte.com/wp-content/themes/qh-timber/theme/dist/assets/images/opengraph.png" />
 
+    <link rel="preload" href="assets/styles/main.css" as="style">
     <link rel="stylesheet" href="assets/styles/main.css" media="all"
         onload="this.media='all'; this.onload=null; this.isLoaded=true">
 
@@ -46,18 +48,7 @@
 <meta name="generator" content="WordPress 6.7.2" />
 <link rel='shortlink' href='https://htarchitecte.com/?p=36' />
 
-
-
-
-
-    <style>
-        :root {
-            --gridSize: 315vw;
-            --app-availheight: 100vh;
-            --app-height: 100vh;
-            --app-height-negative: -100vh;
-        }
-    </style>
+    <style>:root{--gridSize:315vw;--app-availheight:100vh;--app-height:100vh;--app-height-negative:-100vh}</style>
 </head>
 
 <body class="page-template page-template-projects page-template-projects-php page page-id-36" data-module-load>
@@ -2655,37 +2646,31 @@
             src=""
             crossorigin="anonymous"></script>
 
-        <script src="vendors.js"></script>
-        <script src="assets/scripts/app.js" defer></script>    
+                <script src="assets/scripts/app.js" async></script>    
     
-    <script>
-    // Fallback: ensure visibility classes are added even if GSAP delayedCall fails
-    (function() {
-        var html = document.documentElement;
-        function ensureVisible() {
-            if (!html.classList.contains('has-dom-ready')) {
-                html.classList.add('is-ready');
-                html.classList.add('has-dom-ready');
-                html.classList.add('has-scrolled');
-                setTimeout(function() {
-                    html.classList.add('has-dom-ready-callback');
-                }, 100);
-                setTimeout(function() {
-                    html.classList.add('has-dom-visible');
-                }, 600);
-            }
-        }
-        // Try after window.onload + small delay
-        if (document.readyState === 'complete') {
-            setTimeout(ensureVisible, 500);
-        } else {
-            window.addEventListener('load', function() {
-                setTimeout(ensureVisible, 500);
-            });
-        }
-    })();
-    </script>
+    <script>(function() {
+var html = document.documentElement;
+function ensureVisible() {
+if (!html.classList.contains('has-dom-ready')) {
+html.classList.add('is-ready');
+html.classList.add('has-dom-ready');
+html.classList.add('has-scrolled');
+setTimeout(function() {
+html.classList.add('has-dom-ready-callback');
+}, 100);
+setTimeout(function() {
+html.classList.add('has-dom-visible');
+}, 600);
+}
+}
+if (document.readyState === 'complete') {
+setTimeout(ensureVisible, 500);
+} else {
+window.addEventListener('load', function() {
+setTimeout(ensureVisible, 500);
+});
+}
+})();</script>
 </body>
 </html>
-
 
