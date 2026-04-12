@@ -1,0 +1,55 @@
+<svg width="139" height="941" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="arrow-down-small" viewBox="0 0 9.2 5.2">
+<style type="text/css">
+	#arrow-down-small .st0{fill:#212122;}
+</style>
+<path class="st0" d="M5.2,3.6C5.2,3.3,4.9,3,4.6,3S4,3.3,4,3.6H5.2z M4.2,5C4.4,5.3,4.8,5.3,5,5l4-4c0.2-0.2,0.2-0.6,0-0.9
+	c-0.2-0.2-0.6-0.2-0.9,0L4.6,3.7L1.1,0.2c-0.2-0.2-0.6-0.2-0.9,0c-0.2,0.2-0.2,0.6,0,0.9L4.2,5z M4,3.6v1h1.2v-1H4z" />
+</symbol><symbol id="arrow-right" viewBox="0 0 17.5 11">
+<path class="st0" d="M0.8,4.8C0.3,4.8,0,5.1,0,5.5s0.3,0.8,0.8,0.8V4.8z M17.3,6.1c0.3-0.3,0.3-0.8,0-1.1l-4.8-4.8
+	c-0.3-0.3-0.8-0.3-1.1,0s-0.3,0.8,0,1.1l4.2,4.2l-4.2,4.2c-0.3,0.3-0.3,0.8,0,1.1s0.8,0.3,1.1,0L17.3,6.1z M0.8,6.3h16V4.8h-16V6.3z
+	" />
+</symbol><symbol id="close" viewBox="0 0 12.3 11.8">
+<path d="M11.3,11.8c-0.1,0-0.3,0-0.4-0.1L0.1,0.9C0,0.7,0,0.3,0.1,0.1s0.5-0.2,0.7,0L11.7,11c0.2,0.2,0.2,0.5,0,0.7
+	C11.6,11.8,11.4,11.8,11.3,11.8z" />
+<path d="M1,11.8c-0.1,0-0.3,0-0.4-0.1c-0.2-0.2-0.2-0.5,0-0.7L11.5,0.1C11.7,0,12,0,12.2,0.1s0.2,0.5,0,0.7L1.4,11.7
+	C1.3,11.8,1.1,11.8,1,11.8z" />
+</symbol><symbol viewBox="0 0 4 17" id="info">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.20833 3.58332C3.01375 3.58332 3.66667 2.93041 3.66667 2.12499C3.66667 1.31957 3.01375 0.666656 2.20833 0.666656C1.40292 0.666656 0.75 1.31957 0.75 2.12499C0.75 2.93041 1.40292 3.58332 2.20833 3.58332ZM3.26953 16.0833H1.1862V5.74333H3.26953V16.0833Z" />
+</symbol><symbol viewBox="0 0 104 109" id="logo"><g clip-path="url(#logo_a)"><path d="m16.2075 42.7204h-16.2075v-2.7204h16.2075zm-6.618 26.1318h-2.92969v-24.8762h2.92969z" /></g><g clip-path="url(#logo_b)"><path d="m86.9715 108.852h-2.9715l7.3295-28.2242h.2092l1.3393 5.4042zm16.0405 0h-3.0138l-1.7578-6.911h-8.1665l.7115-2.6783h6.869l-5.0275-19.2627h2.8878z" /></g><g clip-path="url(#logo_c)"><path d="m3.17578 28.8522h-2.929686v-28.8522h2.929686zm8.50132-13.0633h-7.24574v-2.8041h7.24574zm4.1905 13.0633h-2.9297v-28.8522h2.9297z" /></g></symbol><clipPath id="logo_a"><path d="m0 40h16.2075v28.8522h-16.2075z" /></clipPath><clipPath id="logo_b"><path d="m84 80h19.0116v28.8522h-19.0116z" /></clipPath><clipPath id="logo_c"><path d="m.246094 0h15.6215v28.8522h-15.6215z" /></clipPath><symbol viewBox="0 0 139 208" id="logo-a">
+
+<g mask="url(#logo-a_mask0_392_4161)">
+<path d="M22.2931 207.746H1L53.5205 5.49854H55.02L64.6169 44.2235L22.2931 207.746ZM137.231 207.746H115.638L103.042 158.224H44.5234L49.6218 139.03H98.8433L62.8175 1H83.5108L137.231 207.746Z" />
+</g>
+</symbol><mask id="logo-a_mask0_392_4161" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="139" height="208">
+<rect width="139" height="208" />
+</mask><symbol viewBox="0 0 113 207" id="logo-h">
+<path d="M21.7559 206.746H0.762695V0H21.7559V206.746ZM82.6737 113.138H30.753V93.0449H82.6737V113.138ZM112.701 206.746H91.7083V0H112.701V206.746Z" />
+</symbol><symbol viewBox="0 0 42 46" fill="none" id="logo-shape">
+<g clip-path="url(#logo-shape_clip0_458_4073)">
+<path d="M8.20548 0H6.85254V35.9496H8.20548V0Z" fill="#212122" stroke="#212122" stroke-width="0.343067" />
+<path d="M25.0207 28.2186H23.6677V46.0001H25.0207V28.2186Z" fill="#212122" stroke="#212122" stroke-width="0.343067" />
+<path d="M34.1047 10.0503H32.7517V28.2184H34.1047V10.0503Z" fill="#212122" stroke="#212122" stroke-width="0.343067" />
+<path d="M33.437 17.0963H0V18.4493H33.437V17.0963Z" fill="#212122" stroke="#212122" stroke-width="0.343067" />
+<path d="M41.1681 27.5333H7.53784V28.8863H41.1681V27.5333Z" fill="#212122" stroke="#212122" stroke-width="0.343067" />
+</g>
+<defs>
+
+</defs>
+</symbol><clipPath id="logo-shape_clip0_458_4073">
+<rect width="41.1681" height="46" fill="white" />
+</clipPath><symbol viewBox="0 0 116 208" id="logo-t">
+
+<g mask="url(#logo-t_mask0_392_4160)">
+<path d="M116.137 20.1209H0V0.627197H116.137V20.1209ZM68.7153 207.373H47.7221V29.118H68.7153V207.373Z" />
+</g>
+</symbol><mask id="logo-t_mask0_392_4160" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="116" height="208">
+<rect width="116" height="208" fill="#D9D9D9" />
+</mask><symbol viewBox="0 0 120 208" id="logo-r">
+<path d="M21.756 207.746H0.763V0H21.756V207.746Z" />
+<path d="M21.756 10.37H60.5C78.5 10.37 93 24.87 93 42.87V62.5C93 80.5 78.5 95 60.5 95H21.756V74.88H60.5C67.4 74.88 72.88 69.4 72.88 62.5V42.87C72.88 35.97 67.4 30.49 60.5 30.49H21.756V10.37Z" />
+<path d="M62 95L119 207.746H95.5L42 100L62 95Z" />
+</symbol><symbol viewBox="0 0 130 208" id="logo-c">
+<path d="M130 30.49H68.5C38.95 30.49 15 54.44 15 83.99V124.76C15 154.31 38.95 178.26 68.5 178.26H130V198.38H68.5C27.9 198.38 0 165.36 0 124.76V83.99C0 43.39 27.9 10.37 68.5 10.37H130V30.49Z" />
+</symbol><symbol id="spinner" viewBox="0 0 18 18">
+<path d="M0.7,9.9C0.5,5.2,4.1,1.2,8.5,1c4.7-0.3,8.9,3.8,8.8,8.8" />
+</symbol></defs></svg>

@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>O Que São Estabelecimentos Hoteleiros? - Tiago R. Correia Arquitectos</title>
+    <meta name="description" content="Guia às tipologias legais de estabelecimentos hoteleiros em Portugal — hotéis, aparthotéis, pousadas — e o que é necessário para licenciar cada tipo.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="O Que São Estabelecimentos Hoteleiros? - Tiago R. Correia Arquitectos">
+    <meta property="og:description" content="Guia às tipologias legais de estabelecimentos hoteleiros em Portugal — hotéis, aparthotéis, pousadas — e o que é necessário para licenciar cada tipo.">
+    <meta property="og:image" content="../assets/images/wp-content/uploads/2025/07/tiago-r-correia-estabelecimentos-hoteleiros.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="../assets/styles/main.css" media="all">
+    <style>
+        /* ── TRC Static Page Styles ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            color: #212122;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Menu Button ── */
+        .trc-menu-btn {
+            position: fixed;
+            top: 28px;
+            right: 32px;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .trc-menu-btn_icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3.5px;
+            width: 18px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-right: 10px;
+            position: relative;
+        }
+        .trc-menu-btn_icon span {
+            display: block;
+            height: 1.5px;
+            width: 100%;
+            background: currentColor;
+            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+            transform-origin: center;
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(1) {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(2) { opacity: 0; }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(3) {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+        /* ── Backdrop ── */
+        .trc-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 140;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.45s ease, visibility 0s 0.45s;
+            cursor: pointer;
+        }
+        html.trc-menu-open .trc-menu-backdrop {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.45s ease, visibility 0s 0s;
+        }
+
+        /* ── Overlay Panel ── */
+        .trc-menu-overlay {
+            position: fixed;
+            top: 0; right: 0;
+            z-index: 150;
+            width: 420px;
+            max-width: 50vw;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            transform: translateX(100%);
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.08);
+            overflow-y: auto;
+        }
+        html.trc-menu-open .trc-menu-overlay { transform: translateX(0); }
+
+        .trc-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 48px 48px;
+            flex: 1;
+        }
+        .trc-menu-nav {
+            list-style: none;
+            margin: 0 0 48px 0;
+            padding: 0;
+        }
+        .trc-menu-nav li { overflow: hidden; }
+        .trc-menu-nav a {
+            display: block;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 200;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+            color: #1a1a1a;
+            text-decoration: none;
+            transform: translateX(40px);
+            opacity: 0;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-nav a:hover { color: #888; }
+        html.trc-menu-open .trc-menu-nav a { transform: translateX(0); opacity: 1; }
+        .trc-menu-nav li:nth-child(1) a { transition-delay: 0.10s; }
+        .trc-menu-nav li:nth-child(2) a { transition-delay: 0.15s; }
+        .trc-menu-nav li:nth-child(3) a { transition-delay: 0.20s; }
+        .trc-menu-nav li:nth-child(4) a { transition-delay: 0.25s; }
+        .trc-menu-nav li:nth-child(5) a { transition-delay: 0.30s; }
+        html:not(.trc-menu-open) .trc-menu-nav a { transition-delay: 0s; }
+
+        .trc-menu-divider {
+            width: 40px;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 32px;
+        }
+        .trc-menu-info {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease 0.25s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
+        }
+        html.trc-menu-open .trc-menu-info { opacity: 1; transform: translateY(0); }
+        html:not(.trc-menu-open) .trc-menu-info { transition-delay: 0s; }
+        .trc-menu-info_section { margin-bottom: 28px; }
+        .trc-menu-info_label {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .trc-menu-info p, .trc-menu-info a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #333;
+            text-decoration: none;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-info a:hover { color: #888; }
+        .trc-menu-social { display: flex; gap: 20px; margin-top: 6px; }
+        .trc-menu-social a {
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .trc-menu-lang {
+            display: flex;
+            gap: 16px;
+            padding: 0 48px 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        html.trc-menu-open .trc-menu-lang { opacity: 1; }
+        html:not(.trc-menu-open) .trc-menu-lang { transition-delay: 0s; }
+        .trc-menu-lang a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .trc-menu-lang a.is-active { color: #1a1a1a; }
+        .trc-menu-lang a:hover { color: #1a1a1a; }
+        html.trc-menu-open { overflow: hidden; }
+
+        @media (max-width: 768px) {
+            .trc-menu-overlay { width: 85vw; max-width: none; }
+            .trc-menu-content { padding: 72px 28px 28px; }
+            .trc-menu-lang { padding: 0 28px 24px; }
+            .trc-menu-btn { top: 20px; right: 20px; }
+        }
+
+        /* ── Page Layout ── */
+        .trc-page-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+            background: #111;
+        }
+        .trc-page-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .trc-page-hero_overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem 5vw;
+        }
+        .trc-page-hero_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            color: #fff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-page-hero_cats {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .trc-page-hero_cat {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 14px;
+            border-radius: 2px;
+        }
+
+        /* ── Content Area ── */
+        .trc-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 5vw 3rem;
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+        .trc-content h1, .trc-content h2, .trc-content h3, .trc-content h4 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.03em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .trc-content h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+        .trc-content h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+        .trc-content h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; }
+        .trc-content h4 { font-size: 1.1rem; font-weight: 300; }
+        .trc-content p { margin-bottom: 1.5rem; }
+        .trc-content a { text-decoration: underline; text-underline-offset: 3px; }
+        .trc-content a:hover { opacity: 0.6; }
+        .trc-content ul, .trc-content ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .trc-content li { margin-bottom: 0.5rem; }
+        .trc-content img {
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+        .trc-content blockquote {
+            border-left: 2px solid #ddd;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ── Image Gallery ── */
+        .trc-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-gallery h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2rem;
+            color: #999;
+        }
+        .trc-gallery_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .trc-gallery_item {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 4/3;
+        }
+        .trc-gallery_item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-gallery_item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Back Link ── */
+        .trc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6em;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            padding: 2rem 5vw;
+            transition: color 0.3s ease;
+        }
+        .trc-back:hover { color: #212122; }
+        .trc-back svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; stroke-width: 1.5; fill: none;
+        }
+
+        /* ── Article Meta ── */
+        .trc-article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .trc-article-date {
+            font-size: 0.82rem;
+            color: #999;
+            letter-spacing: 0.04em;
+        }
+        .trc-article-cat {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 3px 12px;
+            border-radius: 2px;
+            text-decoration: none !important;
+        }
+
+        /* ── Grid Listings ── */
+        .trc-listing {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-listing_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .trc-listing_card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .trc-listing_card_img {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 16/10;
+            background: #f0f0f0;
+        }
+        .trc-listing_card_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-listing_card:hover .trc-listing_card_img img {
+            transform: scale(1.04);
+        }
+        .trc-listing_card_body {
+            padding: 1rem 0;
+        }
+        .trc-listing_card_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.5rem;
+        }
+        .trc-listing_card_excerpt {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #777;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .trc-listing_card_date {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+        .trc-listing_card_cats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .trc-listing_card_cats span {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* ── Section Header ── */
+        .trc-section-header {
+            padding: 8rem 5vw 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .trc-section-header h1 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            margin: 0 0 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-section-header p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #777;
+            max-width: 560px;
+        }
+
+        /* ── Contact Page ── */
+        .trc-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5vw 5rem;
+        }
+        .trc-contact-item h3 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.3rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .trc-contact-item p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .trc-contact-item a {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+            padding-bottom: 2px;
+            transition: border-color 0.3s ease;
+        }
+        .trc-contact-item a:hover { border-color: rgba(0,0,0,0.6); }
+
+        /* ── Related Posts ── */
+        .trc-related {
+            background: #f7f8f9;
+            padding: 4rem 5vw;
+            margin-top: 3rem;
+        }
+        .trc-related h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.5rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .trc-related_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer ── */
+        .trc-footer {
+            background: #111;
+            color: #999;
+            padding: 3rem 5vw 2rem;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .trc-footer a { color: #ccc; text-decoration: none; }
+        .trc-footer a:hover { color: #fff; }
+
+        /* ── Services page specific ── */
+        .trc-services-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5vw 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .trc-page-hero { height: 50vh; min-height: 300px; }
+            .trc-page-hero_overlay { padding: 2rem 5vw; }
+            .trc-gallery_grid { grid-template-columns: 1fr; }
+            .trc-listing_grid { grid-template-columns: 1fr; }
+            .trc-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trc-section-header { padding-top: 5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Menu -->
+    <button class="trc-menu-btn" id="trcMenuBtn" type="button" aria-label="Menu">
+        <span class="trc-menu-btn_icon">
+            <span></span><span></span><span></span>
+        </span>
+        Menu
+    </button>
+    <div class="trc-menu-backdrop" id="trcMenuBackdrop"></div>
+    <div class="trc-menu-overlay" id="trcMenuOverlay">
+        <div class="trc-menu-content">
+            <nav>
+                <ul class="trc-menu-nav">
+                    <li><a href="../index.html">Projectos</a></li>
+                    <li><a href="../sobre-nos.html">Sobre Nos</a></li>
+                    <li><a href="../servicos.html">Servicos</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="trc-menu-divider"></div>
+            <div class="trc-menu-info">
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Contacto</div>
+                    <p>
+                        <a href="mailto:geral@tiagorcorreia.com">geral@tiagorcorreia.com</a><br>
+                        <a href="tel:+351918660664">+351 918 660 664</a>
+                    </p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Morada</div>
+                    <p>R. dos Lagares d'El-Rei 19A<br>1700-268 Lisboa</p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Redes</div>
+                    <div class="trc-menu-social">
+                        <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trc-menu-lang">
+            <a href="../projetos.html" class="is-active">PT</a>
+            <a href="https://www.tiagorcorreia.com/en/">EN</a>
+            <a href="https://www.tiagorcorreia.com/fr/">FR</a>
+        </div>
+    </div>
+
+
+    <section class="trc-page-hero">
+        <img src="../assets/images/wp-content/uploads/2025/07/tiago-r-correia-estabelecimentos-hoteleiros.webp" alt="O Que São Estabelecimentos Hoteleiros?">
+        <div class="trc-page-hero_overlay">
+            <div>
+                <h1 class="trc-page-hero_title">O Que São Estabelecimentos Hoteleiros?</h1>
+            </div>
+        </div>
+    </section>
+
+    <a href="../noticias.html" class="trc-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar as noticias
+    </a>
+
+    <article class="trc-content">
+        <div class="trc-article-meta">
+            <span class="trc-article-date">9 Julho 2025</span>
+            <span class="trc-article-cat">Legislação &amp; Licenciamento</span>
+        </div>
+        <p data-start="357" data-end="460"><em data-start="357" data-end="460">Conheça as bases legais, os tipos existentes e como a arquitectura pode valorizar o seu investimento.</em></p>
+<p data-start="462" data-end="736">A hotelaria em Portugal é um dos sectores mais dinâmicos da economia. Seja em contexto urbano, litoral ou rural, o número de visitantes cresce ano após ano — e com eles, cresce também a procura por <strong data-start="660" data-end="688">alojamentos de qualidade</strong>, bem desenhados, funcionais e com identidade.</p>
+<p data-start="738" data-end="1041">Para investidores, promotores ou empreendedores que pretendem entrar neste mercado, é fundamental perceber <strong data-start="845" data-end="886">o que são estabelecimentos hoteleiros</strong>, como funcionam do ponto de vista legal, e de que forma um projecto arquitectónico bem estruturado pode fazer toda a diferença no sucesso do investimento.</p>
+<h4><strong>Estabelecimentos hoteleiros: definição legal</strong></h4>
+<p data-start="1097" data-end="1371">Segundo o <strong data-start="1107" data-end="1134">Decreto-Lei n.º 15/2014</strong>, os estabelecimentos hoteleiros são empreendimentos turísticos que prestam <strong data-start="1210" data-end="1247">serviços de alojamento temporário</strong> a turistas, podendo ser complementados por outras valências, como <strong data-start="1314" data-end="1370">restauração, bem-estar, espaços para eventos e lazer</strong>.</p>
+<h4 data-start="1373" data-end="1414"><strong>Tipos de estabelecimentos hoteleiros:</strong></h4>
+<ul>
+<li data-start="1417" data-end="1631"><strong data-start="1417" data-end="1427">Hotéis</strong> – A unidade clássica de alojamento, com classificação de 1 a 5 estrelas. Inclui serviços como recepção permanente, quartos com WC privativo, limpeza diária e áreas comuns como salas de refeições e lazer.</li>
+<li data-start="1417" data-end="1631"><strong data-start="1634" data-end="1649">Aparthotéis</strong> – Semelhantes aos hotéis, mas com quartos equipados com kitchenette. Destinam-se a estadias mais longas ou a clientes que valorizam autonomia.</li>
+<li data-start="1417" data-end="1631"><strong data-start="1795" data-end="1807">Pousadas</strong> – Estabelecimentos instalados em edifícios históricos ou de valor patrimonial, com elevada qualidade arquitectónica e cultural.</li>
+<li data-start="1417" data-end="1631"><strong data-start="1938" data-end="1961">Estalagens e motéis</strong> – Tipologias menos comuns, com especificidades próprias, geralmente vocacionadas para públicos muito específicos ou zonas de passagem.</li>
+</ul>
+<h4 data-start="2103" data-end="2132"><strong>Requisitos gerais e legais</strong></h4>
+<p data-start="2134" data-end="2185">A abertura de um estabelecimento hoteleiro implica:</p>
+<ul>
+<li data-start="2188" data-end="2255"><strong data-start="2188" data-end="2241">Localização compatível com o uso turístico no PDM</strong> do município;</li>
+<li data-start="2188" data-end="2255"><strong data-start="2258" data-end="2285">Licenciamento camarário</strong> e registo no Turismo de Portugal;</li>
+<li data-start="2188" data-end="2255">Cumprimento de normas relativas a <strong data-start="2356" data-end="2435">acessibilidade, segurança, higiene, número mínimo de serviços e áreas úteis</strong>;</li>
+<li data-start="2188" data-end="2255">Respeito pelas exigências relativas à <strong data-start="2477" data-end="2507">classificação por estrelas</strong>, com impacto directo na oferta e nos preços.</li>
+</ul>
+<h4 data-start="2559" data-end="2608"><strong>O papel da arquitectura no sucesso de um hotel</strong></h4>
+<p data-start="2610" data-end="2803">Não basta cumprir os requisitos legais — <strong data-start="2651" data-end="2751">o verdadeiro valor de um empreendimento hoteleiro está na forma como o espaço é pensado e vivido</strong>. É aqui que a arquitectura assume um papel central.</p>
+<h4 data-start="2805" data-end="2840"><strong>Um bom projecto hoteleiro deve:</strong></h4>
+<ul>
+<li data-start="2843" data-end="2950">Optimizar a <strong data-start="2855" data-end="2881">funcionalidade interna</strong>, com circuitos bem definidos para hóspedes, funcionários e serviços;</li>
+<li data-start="2843" data-end="2950">Criar uma <strong data-start="2963" data-end="3004">experiência de estadia diferenciadora</strong>, desde a recepção à forma como o quarto se abre para a paisagem;</li>
+<li data-start="2843" data-end="2950">Trabalhar a <strong data-start="3084" data-end="3129">escala, a luz, os materiais e a atmosfera</strong> para transmitir conforto, identidade e sofisticação;</li>
+<li data-start="2843" data-end="2950">Estar preparado para integrar <strong data-start="3215" data-end="3243">valências complementares</strong> como spas, rooftops, piscinas, salas de conferência ou restaurantes;</li>
+<li data-start="2843" data-end="2950">Ser viável e sustentável a longo prazo, tanto em termos de <strong data-start="3374" data-end="3405">manutenção como de operação</strong>.</li>
+</ul>
+<h4 data-start="3413" data-end="3463"><strong>Um parceiro estratégico para o seu investimento</strong></h4>
+<p data-start="3465" data-end="3601">No nosso atelier, temos experiência no desenvolvimento de <strong data-start="3523" data-end="3584">projectos hoteleiros de diferentes escalas e localizações</strong>, com enfoque em:</p>
+<ul>
+<li data-start="3604" data-end="3639">Hotéis boutique em contexto urbano;</li>
+<li data-start="3604" data-end="3639">Unidades em edifícios históricos reabilitados;</li>
+<li data-start="3604" data-end="3639">Hotéis de natureza ou junto à costa;</li>
+<li data-start="3604" data-end="3639">Aparthotéis para exploração turística de longa duração.</li>
+</ul>
+<p data-start="3787" data-end="3816">Acompanhamos todo o processo:</p>
+<p>✔️ Estudo prévio e conceito;<br />✔️ Licenciamento turístico e urbanístico;<br />✔️ Projecto de execução e coordenação de especialidades;<br />✔️ Apoio à candidatura a incentivos ou fundos europeus.</p>
+<h4 data-start="4003" data-end="4032"><strong>Porque trabalhar connosco?</strong></h4>
+<p data-start="4034" data-end="4238">✔️ Experiência comprovada em arquitectura turística<br data-start="4085" data-end="4088" />✔️ Sensibilidade estética e visão funcional<br data-start="4131" data-end="4134" />✔️ Conhecimento legal e técnico actualizado<br data-start="4177" data-end="4180" />✔️ Equipa disponível, rigorosa e orientada para resultados</p>
+<h4 data-start="4245" data-end="4257"><strong>Conclusão</strong></h4>
+<p data-start="4259" data-end="4457">Se está a ponderar investir num hotel ou transformar um imóvel em estabelecimento hoteleiro, o primeiro passo é ter um <strong data-start="4378" data-end="4456">projecto sólido, legalmente enquadrado e arquitectonicamente bem resolvido</strong>.</p>
+<p data-start="4459" data-end="4596"><strong data-start="4459" data-end="4475">Contacte-nos</strong> e conheça soluções à medida para transformar a sua ideia num espaço com valor real — para o hóspede e para o investidor.</p>
+<h3><a href="../contactos.html"><strong>Fale connosco para mais esclarecimentos</strong></a></h3>
+
+<!-- wp:paragraph -->
+<p></p>
+<!-- /wp:paragraph -->
+    </article>
+
+    <section class="trc-related">
+        <h2>Artigos Relacionados</h2>
+        <div class="trc-related_grid">
+            <a class="trc-listing_card" href="o-novo-rjue-as-5-alteracoes-estruturais-e-o-impacto-na-promocao-imobiliaria.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/03/rjue-2026-tiago-correia.jpg" alt="O Novo RJUE: As 5 Alterações Estruturais e o Impacto na Promoção Imobiliária" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">31.03.2026</div>
+                    <h3 class="trc-listing_card_title">O Novo RJUE: As 5 Alterações Estruturais e o Impacto na Promoção Imobiliária</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos O novo RJUE redefine as regras do jogo para promotores...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="novas-regras-licenciamento-obras-2026.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/01/Gemini_Generated_Image_b9pxqbb9pxqbb9px-e1768636873676.png" alt="As regras de licenciamento de obras mudaram em 2026: o que significa para si?" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">17.01.2026</div>
+                    <h3 class="trc-listing_card_title">As regras de licenciamento de obras mudaram em 2026: o que significa para si?</h3>
+                    <p class="trc-listing_card_excerpt">Construir, remodelar ou quaisquer outras obras em Portugal foram, durante décadas, sinónimos de...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="quer-criar-o-empreendimento-turistico.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/01/unnamed-e1767533752578.jpg" alt="Quer criar um empreendimento turístico? O guia para o seu investimento" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">04.01.2026</div>
+                    <h3 class="trc-listing_card_title">Quer criar um empreendimento turístico? O guia para o seu investimento</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos Portugal é o 7.º destino mais visitado da Europa....</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    
+    <footer class="trc-footer">
+        <span>&copy; 2014&ndash;2026 Tiago R. Correia Arquitectos</span>
+        <span>
+            <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a> &middot;
+            <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a> &middot;
+            <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+        </span>
+    </footer>
+
+    
+    <script>
+    (function() {
+        var html = document.documentElement;
+        var btn = document.getElementById('trcMenuBtn');
+        var backdrop = document.getElementById('trcMenuBackdrop');
+        var overlay = document.getElementById('trcMenuOverlay');
+        if (!btn || !overlay) return;
+        function closeMenu() { html.classList.remove('trc-menu-open'); }
+        btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
+        });
+    })();
+    </script>
+
+</body>
+</html>

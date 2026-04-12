@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Empreendimento Turístico: Guia de Licenciamento 2026</title>
+    <meta name="description" content="Do RJET ao alvará: requisitos, custos reais e prazos de licenciamento para empreendimentos turísticos. Avaliamos a viabilidade do seu terreno em 48h.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Empreendimento Turístico: Guia de Licenciamento 2026">
+    <meta property="og:description" content="Do RJET ao alvará: requisitos, custos reais e prazos de licenciamento para empreendimentos turísticos. Avaliamos a viabilidade do seu terreno em 48h.">
+    <meta property="og:image" content="../assets/images/wp-content/uploads/2026/01/unnamed-e1767533752578.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="../assets/styles/main.css" media="all">
+    <style>
+        /* ── TRC Static Page Styles ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            color: #212122;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Menu Button ── */
+        .trc-menu-btn {
+            position: fixed;
+            top: 28px;
+            right: 32px;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .trc-menu-btn_icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3.5px;
+            width: 18px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-right: 10px;
+            position: relative;
+        }
+        .trc-menu-btn_icon span {
+            display: block;
+            height: 1.5px;
+            width: 100%;
+            background: currentColor;
+            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+            transform-origin: center;
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(1) {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(2) { opacity: 0; }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(3) {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+        /* ── Backdrop ── */
+        .trc-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 140;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.45s ease, visibility 0s 0.45s;
+            cursor: pointer;
+        }
+        html.trc-menu-open .trc-menu-backdrop {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.45s ease, visibility 0s 0s;
+        }
+
+        /* ── Overlay Panel ── */
+        .trc-menu-overlay {
+            position: fixed;
+            top: 0; right: 0;
+            z-index: 150;
+            width: 420px;
+            max-width: 50vw;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            transform: translateX(100%);
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.08);
+            overflow-y: auto;
+        }
+        html.trc-menu-open .trc-menu-overlay { transform: translateX(0); }
+
+        .trc-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 48px 48px;
+            flex: 1;
+        }
+        .trc-menu-nav {
+            list-style: none;
+            margin: 0 0 48px 0;
+            padding: 0;
+        }
+        .trc-menu-nav li { overflow: hidden; }
+        .trc-menu-nav a {
+            display: block;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 200;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+            color: #1a1a1a;
+            text-decoration: none;
+            transform: translateX(40px);
+            opacity: 0;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-nav a:hover { color: #888; }
+        html.trc-menu-open .trc-menu-nav a { transform: translateX(0); opacity: 1; }
+        .trc-menu-nav li:nth-child(1) a { transition-delay: 0.10s; }
+        .trc-menu-nav li:nth-child(2) a { transition-delay: 0.15s; }
+        .trc-menu-nav li:nth-child(3) a { transition-delay: 0.20s; }
+        .trc-menu-nav li:nth-child(4) a { transition-delay: 0.25s; }
+        .trc-menu-nav li:nth-child(5) a { transition-delay: 0.30s; }
+        html:not(.trc-menu-open) .trc-menu-nav a { transition-delay: 0s; }
+
+        .trc-menu-divider {
+            width: 40px;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 32px;
+        }
+        .trc-menu-info {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease 0.25s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
+        }
+        html.trc-menu-open .trc-menu-info { opacity: 1; transform: translateY(0); }
+        html:not(.trc-menu-open) .trc-menu-info { transition-delay: 0s; }
+        .trc-menu-info_section { margin-bottom: 28px; }
+        .trc-menu-info_label {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .trc-menu-info p, .trc-menu-info a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #333;
+            text-decoration: none;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-info a:hover { color: #888; }
+        .trc-menu-social { display: flex; gap: 20px; margin-top: 6px; }
+        .trc-menu-social a {
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .trc-menu-lang {
+            display: flex;
+            gap: 16px;
+            padding: 0 48px 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        html.trc-menu-open .trc-menu-lang { opacity: 1; }
+        html:not(.trc-menu-open) .trc-menu-lang { transition-delay: 0s; }
+        .trc-menu-lang a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .trc-menu-lang a.is-active { color: #1a1a1a; }
+        .trc-menu-lang a:hover { color: #1a1a1a; }
+        html.trc-menu-open { overflow: hidden; }
+
+        @media (max-width: 768px) {
+            .trc-menu-overlay { width: 85vw; max-width: none; }
+            .trc-menu-content { padding: 72px 28px 28px; }
+            .trc-menu-lang { padding: 0 28px 24px; }
+            .trc-menu-btn { top: 20px; right: 20px; }
+        }
+
+        /* ── Page Layout ── */
+        .trc-page-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+            background: #111;
+        }
+        .trc-page-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .trc-page-hero_overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem 5vw;
+        }
+        .trc-page-hero_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            color: #fff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-page-hero_cats {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .trc-page-hero_cat {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 14px;
+            border-radius: 2px;
+        }
+
+        /* ── Content Area ── */
+        .trc-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 5vw 3rem;
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+        .trc-content h1, .trc-content h2, .trc-content h3, .trc-content h4 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.03em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .trc-content h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+        .trc-content h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+        .trc-content h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; }
+        .trc-content h4 { font-size: 1.1rem; font-weight: 300; }
+        .trc-content p { margin-bottom: 1.5rem; }
+        .trc-content a { text-decoration: underline; text-underline-offset: 3px; }
+        .trc-content a:hover { opacity: 0.6; }
+        .trc-content ul, .trc-content ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .trc-content li { margin-bottom: 0.5rem; }
+        .trc-content img {
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+        .trc-content blockquote {
+            border-left: 2px solid #ddd;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ── Image Gallery ── */
+        .trc-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-gallery h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2rem;
+            color: #999;
+        }
+        .trc-gallery_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .trc-gallery_item {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 4/3;
+        }
+        .trc-gallery_item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-gallery_item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Back Link ── */
+        .trc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6em;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            padding: 2rem 5vw;
+            transition: color 0.3s ease;
+        }
+        .trc-back:hover { color: #212122; }
+        .trc-back svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; stroke-width: 1.5; fill: none;
+        }
+
+        /* ── Article Meta ── */
+        .trc-article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .trc-article-date {
+            font-size: 0.82rem;
+            color: #999;
+            letter-spacing: 0.04em;
+        }
+        .trc-article-cat {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 3px 12px;
+            border-radius: 2px;
+            text-decoration: none !important;
+        }
+
+        /* ── Grid Listings ── */
+        .trc-listing {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-listing_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .trc-listing_card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .trc-listing_card_img {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 16/10;
+            background: #f0f0f0;
+        }
+        .trc-listing_card_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-listing_card:hover .trc-listing_card_img img {
+            transform: scale(1.04);
+        }
+        .trc-listing_card_body {
+            padding: 1rem 0;
+        }
+        .trc-listing_card_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.5rem;
+        }
+        .trc-listing_card_excerpt {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #777;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .trc-listing_card_date {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+        .trc-listing_card_cats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .trc-listing_card_cats span {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* ── Section Header ── */
+        .trc-section-header {
+            padding: 8rem 5vw 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .trc-section-header h1 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            margin: 0 0 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-section-header p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #777;
+            max-width: 560px;
+        }
+
+        /* ── Contact Page ── */
+        .trc-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5vw 5rem;
+        }
+        .trc-contact-item h3 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.3rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .trc-contact-item p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .trc-contact-item a {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+            padding-bottom: 2px;
+            transition: border-color 0.3s ease;
+        }
+        .trc-contact-item a:hover { border-color: rgba(0,0,0,0.6); }
+
+        /* ── Related Posts ── */
+        .trc-related {
+            background: #f7f8f9;
+            padding: 4rem 5vw;
+            margin-top: 3rem;
+        }
+        .trc-related h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.5rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .trc-related_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer ── */
+        .trc-footer {
+            background: #111;
+            color: #999;
+            padding: 3rem 5vw 2rem;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .trc-footer a { color: #ccc; text-decoration: none; }
+        .trc-footer a:hover { color: #fff; }
+
+        /* ── Services page specific ── */
+        .trc-services-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5vw 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .trc-page-hero { height: 50vh; min-height: 300px; }
+            .trc-page-hero_overlay { padding: 2rem 5vw; }
+            .trc-gallery_grid { grid-template-columns: 1fr; }
+            .trc-listing_grid { grid-template-columns: 1fr; }
+            .trc-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trc-section-header { padding-top: 5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Menu -->
+    <button class="trc-menu-btn" id="trcMenuBtn" type="button" aria-label="Menu">
+        <span class="trc-menu-btn_icon">
+            <span></span><span></span><span></span>
+        </span>
+        Menu
+    </button>
+    <div class="trc-menu-backdrop" id="trcMenuBackdrop"></div>
+    <div class="trc-menu-overlay" id="trcMenuOverlay">
+        <div class="trc-menu-content">
+            <nav>
+                <ul class="trc-menu-nav">
+                    <li><a href="../index.html">Projectos</a></li>
+                    <li><a href="../sobre-nos.html">Sobre Nos</a></li>
+                    <li><a href="../servicos.html">Servicos</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="trc-menu-divider"></div>
+            <div class="trc-menu-info">
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Contacto</div>
+                    <p>
+                        <a href="mailto:geral@tiagorcorreia.com">geral@tiagorcorreia.com</a><br>
+                        <a href="tel:+351918660664">+351 918 660 664</a>
+                    </p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Morada</div>
+                    <p>R. dos Lagares d'El-Rei 19A<br>1700-268 Lisboa</p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Redes</div>
+                    <div class="trc-menu-social">
+                        <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trc-menu-lang">
+            <a href="../projetos.html" class="is-active">PT</a>
+            <a href="https://www.tiagorcorreia.com/en/">EN</a>
+            <a href="https://www.tiagorcorreia.com/fr/">FR</a>
+        </div>
+    </div>
+
+
+    <section class="trc-page-hero">
+        <img src="../assets/images/wp-content/uploads/2026/01/unnamed-e1767533752578.jpg" alt="Quer criar um empreendimento turístico? O guia para o seu investimento">
+        <div class="trc-page-hero_overlay">
+            <div>
+                <h1 class="trc-page-hero_title">Quer criar um empreendimento turístico? O guia para o seu investimento</h1>
+            </div>
+        </div>
+    </section>
+
+    <a href="../noticias.html" class="trc-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar as noticias
+    </a>
+
+    <article class="trc-content">
+        <div class="trc-article-meta">
+            <span class="trc-article-date">4 Janeiro 2026</span>
+            <span class="trc-article-cat">Investimento Imobiliário</span><span class="trc-article-cat">Legislação &amp; Licenciamento</span>
+        </div>
+        <p style="font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#c8a96e;margin:0 0 12px 0;">Resumo Executivo · Leitura em 60 segundos</p>
+  <p style="font-size:16px;font-weight:600;color:#2a2a2a;margin:0 0 16px 0;line-height:1.4;">Portugal é o 7.º destino mais visitado da Europa. Criar um empreendimento turístico viável exige dominar 4 variáveis: tipologia legal, viabilidade construtiva, licenciamento e rentabilidade real.</p>
+  <ul style="margin:0;padding-left:18px;color:#2a2a2a;font-size:14px;line-height:2.2;">
+    <li><strong>6 tipologias legais</strong> — Hotel, Apart-Hotel, TER, TH, AL e Parques de Campismo, cada uma com requisitos distintos</li>
+    <li><strong>Rentabilidade média</strong> — TRevPAR entre €80 e €220/noite; retorno típico em 8 a 14 anos</li>
+    <li><strong>Licenciamento</strong> — 6 a 18 meses consoante a tipologia, município e obra envolvida</li>
+    <li><strong>Viabilidade construtiva</strong> — PDM, RAN, REN e servidões são as 4 condicionantes críticas antes de qualquer investimento</li>
+    <li><strong>Erro mais frequente</strong> — adquirir o imóvel antes de verificar a aptidão turística e construtiva do terreno</li>
+  </ul>
+		<p>Portugal ocupa consistentemente o top 10 dos destinos turísticos europeus. Em 2024, o país registou 31 milhões de hóspedes e receitas turísticas superiores a €24 mil milhões — um recorde histórico. Para investidores imobiliários, promotores e family offices, o turismo representa uma das classes de activos com maior resiliência e potencial de valorização em Portugal.</p>
+<p>Contudo, a distância entre a oportunidade e o retorno efectivo mede-se em decisões técnicas precisas: escolha da tipologia legal correcta, análise de viabilidade construtiva, domínio do processo de licenciamento e estruturação financeira adequada. Este guia percorre cada uma dessas etapas com o rigor que um investimento desta dimensão exige.</p>		
+		<h2>1. Tipologias de Empreendimentos Turísticos em Portugal</h2>
+<p>O Regime Jurídico dos Empreendimentos Turísticos (RJET), consagrado no Decreto-Lei n.º 39/2008 e sucessivas alterações, define seis tipologias principais. A escolha correcta é a primeira decisão estratégica do investidor — dela dependem os requisitos de construção, a capacidade máxima, as taxas de licenciamento e, em última análise, a rentabilidade do activo.</p>
+<h3>Estabelecimentos Hoteleiros</h3>
+<p>Incluem Hotéis (1 a 5 estrelas), Apart-Hotéis e Pousadas. São a tipologia com maior exigência regulamentar: dimensão mínima dos quartos (de 14m² para hotel de 1 estrela a 18m² para 4 e 5 estrelas), instalações sanitárias privativas, áreas comuns proporcionais à capacidade. A classificação por estrelas é atribuída pelo Turismo de Portugal após vistoria técnica.</p>
+<p><strong>Perfil de investimento:</strong> Capital intensivo, operação complexa, mas maior liquidez no mercado de transacções institucionais. Indicado para fundos de investimento imobiliário e promotores com experiência no sector.</p>
+<h3>Turismo no Espaço Rural (TER) e Turismo de Habitação (TH)</h3>
+<p>O TER abrange Casas de Campo, Agroturismo e Hotéis Rurais — activos em espaço rural com arquitectura típica regional. O Turismo de Habitação corresponde a imóveis de reconhecido valor arquitectónico ou histórico, geralmente solares e quintas. Ambos têm capacidade máxima de 30 quartos.</p>
+<p><strong>Perfil de investimento:</strong> Menor exigência de capital inicial, forte valorização pela autenticidade. ROI médio de 6% a 9% em activos bem posicionados. Muito procurados por family offices para diversificação patrimonial com fruição pessoal.</p>
+<h3>Alojamento Local (AL)</h3>
+<p>Embora tecnicamente fora do RJET, o AL (regulado pelo DL 128/2014) é a tipologia de entrada mais acessível. Modalidades: moradia, apartamento, estabelecimento de hospedagem e quartos. Requer registo na plataforma do Turismo de Portugal e na câmara municipal. <strong>Atenção:</strong> várias câmaras (Lisboa, Porto, Cascais) impõem moratórias ou zonas de contenção — a verificação da admissibilidade por freguesia é obrigatória antes da aquisição do imóvel.</p>
+<h2>2. Análise de Viabilidade: As 4 Condicionantes Críticas</h2>
+<p>O erro mais frequente e mais caro que um promotor ou investidor pode cometer é adquirir um imóvel ou terreno antes de verificar a sua aptidão para uso turístico. As quatro condicionantes a verificar sistematicamente são:</p>
+<h3>PDM — Plano Director Municipal</h3>
+<p>O PDM de cada município define os usos admissíveis por zona. Um terreno em zona agrícola pode não admitir construção turística de raiz; um imóvel em zona histórica pode ter restrições de volumetria. A consulta da planta de ordenamento e do regulamento do PDM é o primeiro passo de qualquer análise de viabilidade.</p>
+<h3>RAN e REN — Reserva Agrícola e Ecológica Nacional</h3>
+<p>Terrenos abrangidos pela RAN (solos de aptidão agrícola) ou pela REN (ecossistemas sensíveis: leitos de cheia, zonas costeiras, cabeceiras de linhas de água) estão sujeitos a restrições severas de construção. A utilização turística em RAN exige autorização da DGADR; em REN, da APA — processos com prazos de 3 a 9 meses.</p>
+<h3>Servidões e Restrições de Utilidade Pública</h3>
+<p>Servidões de infraestruturas (linhas de alta tensão, gasodutos), de domínio público hídrico, de zonas de protecção a imóveis classificados ou de áreas de protecção aeronáutica podem inviabilizar ou condicionar significativamente a construção. A consulta ao SNIT (Sistema Nacional de Informação Territorial) e ao SRUP é indispensável.</p>
+<h3>Viabilidade Construtiva e Índices Urbanísticos</h3>
+<p>Mesmo em zonas onde o uso turístico é admissível, os índices de construção do PDM (índice de utilização do solo, número de pisos, afastamentos) determinam a área bruta de construção possível. Esta variável é determinante para o modelo financeiro: a rentabilidade por m² é o coração de qualquer análise de investimento.</p>
+<h2>3. Processo de Licenciamento: Prazos Reais por Tipologia</h2>
+<p>O processo de licenciamento de um empreendimento turístico envolve dois níveis de aprovação: o licenciamento urbanístico (câmara municipal) e o reconhecimento turístico (Turismo de Portugal). Os prazos variam significativamente consoante a tipologia e a complexidade da obra.</p>
+<table style="width:100%;border-collapse:collapse;font-size:14px;margin:16px 0;">
+  <thead>
+    <tr style="background:#2a2a2a;color:white;">
+      <th style="padding:12px;text-align:left;">Tipologia</th>
+      <th style="padding:12px;text-align:left;">Procedimento Urbanístico</th>
+      <th style="padding:12px;text-align:left;">Prazo Licenciamento</th>
+      <th style="padding:12px;text-align:left;">Reconhecimento Turístico</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #e0dbd3;">
+      <td style="padding:12px;">Hotel 3-5★</td>
+      <td style="padding:12px;">Licença de construção</td>
+      <td style="padding:12px;">9 a 18 meses</td>
+      <td style="padding:12px;">3 a 6 meses (pós-obra)</td>
+    </tr>
+    <tr style="border-bottom:1px solid #e0dbd3;background:#fafafa;">
+      <td style="padding:12px;">TER / TH</td>
+      <td style="padding:12px;">Licença ou Com. Prévia</td>
+      <td style="padding:12px;">4 a 12 meses</td>
+      <td style="padding:12px;">2 a 4 meses (pós-obra)</td>
+    </tr>
+    <tr style="border-bottom:1px solid #e0dbd3;">
+      <td style="padding:12px;">Apart-Hotel</td>
+      <td style="padding:12px;">Licença de construção</td>
+      <td style="padding:12px;">8 a 16 meses</td>
+      <td style="padding:12px;">3 a 5 meses (pós-obra)</td>
+    </tr>
+    <tr style="background:#fafafa;">
+      <td style="padding:12px;">Alojamento Local</td>
+      <td style="padding:12px;">Registo online + CM</td>
+      <td style="padding:12px;">10 a 30 dias</td>
+      <td style="padding:12px;">Automático após registo</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Nota crítica:</strong> Estes prazos assumem projecto sem erros de conformidade. Um projecto com falhas regulamentares que origine indeferimento e recurso pode multiplicar os prazos por 2 a 3 vezes, com o correspondente impacto no custo de financiamento e no retorno do investimento.</p>
+<h2>4. Rentabilidade Real: O Que os Números Dizem</h2>
+<p>A rentabilidade de um empreendimento turístico depende de três variáveis primárias: taxa de ocupação, diária média (ADR) e custos operacionais. Os benchmarks do sector em Portugal, com base em dados do Turismo de Portugal e da STR, apontam para:</p>
+<h3>Métricas de Referência por Segmento (2024)</h3>
+<ul>
+  <li><strong>Hotel urbano 4★ (Lisboa/Porto):</strong> Ocupação 72-80%, ADR €130-180, RevPAR €95-140. Yield bruto sobre activo: 5,5% a 7%.</li>
+  <li><strong>Hotel boutique rural (Douro/Alentejo):</strong> Ocupação 55-68%, ADR €150-250, RevPAR €85-170. Yield bruto: 4,5% a 6,5%. Forte valorização do activo a 10 anos.</li>
+  <li><strong>TER / Casa de Campo (Alentejo/Minho):</strong> Ocupação 48-62%, ADR €80-160, RevPAR €40-100. Yield bruto: 4% a 6%. Activo com forte componente de valorização patrimonial.</li>
+  <li><strong>Alojamento Local (Lisboa, Porto, Algarve):</strong> Ocupação 65-82%, ADR €90-200, RevPAR €65-150. Yield bruto: 5% a 8% (sujeito a risco regulatório).</li>
+</ul>
+<p>O período de retorno do investimento (payback) situa-se tipicamente entre 8 e 14 anos para activos hoteleiros de nova construção, e entre 6 e 10 anos para reabilitação de imóveis em destinos consolidados.</p>
+<h2>5. Checklist de Due Diligence para Investidores</h2>
+<p>Antes de formalizar qualquer aquisição ou compromisso financeiro, recomendamos a verificação sistemática dos seguintes pontos:</p>
+<ul>
+  <li>✓ Consulta do PDM e verificação do uso turístico admissível</li>
+  <li>✓ Verificação de abrangência por RAN, REN e outras servidões</li>
+  <li>✓ Consulta prévia à câmara municipal (PIP) sobre índices construtivos</li>
+  <li>✓ Consulta ao Turismo de Portugal sobre elegibilidade da tipologia pretendida</li>
+  <li>✓ Verificação de zonas de contenção de Alojamento Local (se aplicável)</li>
+  <li>✓ Análise das infra-estruturas existentes (acesso viário, água, esgotos, electricidade)</li>
+  <li>✓ Levantamento de eventuais ónus, hipotecas ou penhoras no registo predial</li>
+  <li>✓ Modelação financeira com cenários de ocupação conservador, base e optimista</li>
+  <li>✓ Análise de sensibilidade ao custo de financiamento e ao prazo de obra</li>
+</ul>
+<h2>6. O Papel do Arquitecto: Da Viabilidade à Rentabilidade</h2>
+<p>No quadro legislativo actual — com a autorresponsabilização introduzida pelas alterações ao RJUE — a equipa de arquitectura tornou-se o principal elemento de gestão de risco do investidor. Um projecto tecnicamente correcto evita embargos, poupando meses de atraso e milhares de euros em custos de financiamento. Um projecto optimizado para a tipologia certa, com a implantação correcta e o programa funcional adequado, pode fazer a diferença entre um activo com 5% de yield e um com 7%.</p>
+<p>No Atelier Tiago R. Correia Arquitectura, desenvolvemos todos os projectos de empreendimentos turísticos em metodologia BIM (Building Information Modeling), o que permite:</p>
+<ul>
+  <li><strong>Detecção precoce de conflitos</strong> entre especialidades (estruturas, AVAC, instalações eléctricas e hidráulicas) — antes de assentar o primeiro tijolo</li>
+  <li><strong>Medições rigorosas</strong> que sustentam orçamentos de obra com desvio inferior a 5%</li>
+  <li><strong>Visualização fotorrealista</strong> do empreendimento para apresentação a investidores e entidades financiadoras</li>
+  <li><strong>Coordenação com o Turismo de Portugal</strong> desde a fase de anteprojecto, antecipando requisitos de classificação</li>
+</ul>
+<p>Actuamos em todo o território nacional — de reabilitações históricas no Minho a novos hotéis boutique no Algarve — com conhecimento das especificidades de cada PDM e dos interlocutores relevantes em cada município.</p>		
+		<a href="../servicos.html" style="display:inline-block;padding:12px 26px;border:1px solid #c8a96e;color:#c8a96e;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;">Ver Serviços</a><a href="../contactos.html" style="display:inline-block;padding:12px 26px;background:#2a2a2a;color:white;font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;">Contactar</a>
+    </article>
+
+    <section class="trc-related">
+        <h2>Artigos Relacionados</h2>
+        <div class="trc-related_grid">
+            <a class="trc-listing_card" href="como-criar-condominios-habitacao-investimento.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2024/09/Image7-min-1.png" alt="Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">03.04.2026</div>
+                    <h3 class="trc-listing_card_title">Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos</h3>
+                    <p class="trc-listing_card_excerpt">O mercado imobiliário em Portugal em 2026 exige mais do que apenas &quot;construir e vender&quot;. Com a...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="tir-roi-promocao-imobiliaria-rentabilidade.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/04/IMG_3837.jpeg" alt="TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">02.04.2026</div>
+                    <h3 class="trc-listing_card_title">TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos TIR vs ROI — a TIR (Taxa Interna de Rentabilidade)...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="o-novo-rjue-as-5-alteracoes-estruturais-e-o-impacto-na-promocao-imobiliaria.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/03/rjue-2026-tiago-correia.jpg" alt="O Novo RJUE: As 5 Alterações Estruturais e o Impacto na Promoção Imobiliária" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">31.03.2026</div>
+                    <h3 class="trc-listing_card_title">O Novo RJUE: As 5 Alterações Estruturais e o Impacto na Promoção Imobiliária</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos O novo RJUE redefine as regras do jogo para promotores...</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    
+    <footer class="trc-footer">
+        <span>&copy; 2014&ndash;2026 Tiago R. Correia Arquitectos</span>
+        <span>
+            <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a> &middot;
+            <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a> &middot;
+            <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+        </span>
+    </footer>
+
+    
+    <script>
+    (function() {
+        var html = document.documentElement;
+        var btn = document.getElementById('trcMenuBtn');
+        var backdrop = document.getElementById('trcMenuBackdrop');
+        var overlay = document.getElementById('trcMenuOverlay');
+        if (!btn || !overlay) return;
+        function closeMenu() { html.classList.remove('trc-menu-open'); }
+        btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
+        });
+    })();
+    </script>
+
+</body>
+</html>

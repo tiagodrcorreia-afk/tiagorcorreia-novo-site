@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>LANDSCOPE: análise rápida para decisões imobiliárias seguras - Tiago R. Correia Arquitectos</title>
+    <meta name="description" content="LANDSCOPE avalia viabilidade, riscos e oportunidades de um terreno ou imóvel em 48 horas — antes de qualquer investimento. Método exclusivo Tiago R. Correia.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="LANDSCOPE: análise rápida para decisões imobiliárias seguras - Tiago R. Correia Arquitectos">
+    <meta property="og:description" content="LANDSCOPE avalia viabilidade, riscos e oportunidades de um terreno ou imóvel em 48 horas — antes de qualquer investimento. Método exclusivo Tiago R. Correia.">
+    <meta property="og:image" content="../assets/images/wp-content/uploads/2024/10/tiago-r-correia-antes-comprar-terreno-principais-passos.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="../assets/styles/main.css" media="all">
+    <style>
+        /* ── TRC Static Page Styles ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            color: #212122;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Menu Button ── */
+        .trc-menu-btn {
+            position: fixed;
+            top: 28px;
+            right: 32px;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .trc-menu-btn_icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3.5px;
+            width: 18px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-right: 10px;
+            position: relative;
+        }
+        .trc-menu-btn_icon span {
+            display: block;
+            height: 1.5px;
+            width: 100%;
+            background: currentColor;
+            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+            transform-origin: center;
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(1) {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(2) { opacity: 0; }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(3) {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+        /* ── Backdrop ── */
+        .trc-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 140;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.45s ease, visibility 0s 0.45s;
+            cursor: pointer;
+        }
+        html.trc-menu-open .trc-menu-backdrop {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.45s ease, visibility 0s 0s;
+        }
+
+        /* ── Overlay Panel ── */
+        .trc-menu-overlay {
+            position: fixed;
+            top: 0; right: 0;
+            z-index: 150;
+            width: 420px;
+            max-width: 50vw;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            transform: translateX(100%);
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.08);
+            overflow-y: auto;
+        }
+        html.trc-menu-open .trc-menu-overlay { transform: translateX(0); }
+
+        .trc-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 48px 48px;
+            flex: 1;
+        }
+        .trc-menu-nav {
+            list-style: none;
+            margin: 0 0 48px 0;
+            padding: 0;
+        }
+        .trc-menu-nav li { overflow: hidden; }
+        .trc-menu-nav a {
+            display: block;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 200;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+            color: #1a1a1a;
+            text-decoration: none;
+            transform: translateX(40px);
+            opacity: 0;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-nav a:hover { color: #888; }
+        html.trc-menu-open .trc-menu-nav a { transform: translateX(0); opacity: 1; }
+        .trc-menu-nav li:nth-child(1) a { transition-delay: 0.10s; }
+        .trc-menu-nav li:nth-child(2) a { transition-delay: 0.15s; }
+        .trc-menu-nav li:nth-child(3) a { transition-delay: 0.20s; }
+        .trc-menu-nav li:nth-child(4) a { transition-delay: 0.25s; }
+        .trc-menu-nav li:nth-child(5) a { transition-delay: 0.30s; }
+        html:not(.trc-menu-open) .trc-menu-nav a { transition-delay: 0s; }
+
+        .trc-menu-divider {
+            width: 40px;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 32px;
+        }
+        .trc-menu-info {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease 0.25s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
+        }
+        html.trc-menu-open .trc-menu-info { opacity: 1; transform: translateY(0); }
+        html:not(.trc-menu-open) .trc-menu-info { transition-delay: 0s; }
+        .trc-menu-info_section { margin-bottom: 28px; }
+        .trc-menu-info_label {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .trc-menu-info p, .trc-menu-info a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #333;
+            text-decoration: none;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-info a:hover { color: #888; }
+        .trc-menu-social { display: flex; gap: 20px; margin-top: 6px; }
+        .trc-menu-social a {
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .trc-menu-lang {
+            display: flex;
+            gap: 16px;
+            padding: 0 48px 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        html.trc-menu-open .trc-menu-lang { opacity: 1; }
+        html:not(.trc-menu-open) .trc-menu-lang { transition-delay: 0s; }
+        .trc-menu-lang a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .trc-menu-lang a.is-active { color: #1a1a1a; }
+        .trc-menu-lang a:hover { color: #1a1a1a; }
+        html.trc-menu-open { overflow: hidden; }
+
+        @media (max-width: 768px) {
+            .trc-menu-overlay { width: 85vw; max-width: none; }
+            .trc-menu-content { padding: 72px 28px 28px; }
+            .trc-menu-lang { padding: 0 28px 24px; }
+            .trc-menu-btn { top: 20px; right: 20px; }
+        }
+
+        /* ── Page Layout ── */
+        .trc-page-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+            background: #111;
+        }
+        .trc-page-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .trc-page-hero_overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem 5vw;
+        }
+        .trc-page-hero_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            color: #fff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-page-hero_cats {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .trc-page-hero_cat {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 14px;
+            border-radius: 2px;
+        }
+
+        /* ── Content Area ── */
+        .trc-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 5vw 3rem;
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+        .trc-content h1, .trc-content h2, .trc-content h3, .trc-content h4 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.03em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .trc-content h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+        .trc-content h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+        .trc-content h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; }
+        .trc-content h4 { font-size: 1.1rem; font-weight: 300; }
+        .trc-content p { margin-bottom: 1.5rem; }
+        .trc-content a { text-decoration: underline; text-underline-offset: 3px; }
+        .trc-content a:hover { opacity: 0.6; }
+        .trc-content ul, .trc-content ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .trc-content li { margin-bottom: 0.5rem; }
+        .trc-content img {
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+        .trc-content blockquote {
+            border-left: 2px solid #ddd;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ── Image Gallery ── */
+        .trc-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-gallery h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2rem;
+            color: #999;
+        }
+        .trc-gallery_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .trc-gallery_item {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 4/3;
+        }
+        .trc-gallery_item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-gallery_item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Back Link ── */
+        .trc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6em;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            padding: 2rem 5vw;
+            transition: color 0.3s ease;
+        }
+        .trc-back:hover { color: #212122; }
+        .trc-back svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; stroke-width: 1.5; fill: none;
+        }
+
+        /* ── Article Meta ── */
+        .trc-article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .trc-article-date {
+            font-size: 0.82rem;
+            color: #999;
+            letter-spacing: 0.04em;
+        }
+        .trc-article-cat {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 3px 12px;
+            border-radius: 2px;
+            text-decoration: none !important;
+        }
+
+        /* ── Grid Listings ── */
+        .trc-listing {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-listing_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .trc-listing_card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .trc-listing_card_img {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 16/10;
+            background: #f0f0f0;
+        }
+        .trc-listing_card_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-listing_card:hover .trc-listing_card_img img {
+            transform: scale(1.04);
+        }
+        .trc-listing_card_body {
+            padding: 1rem 0;
+        }
+        .trc-listing_card_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.5rem;
+        }
+        .trc-listing_card_excerpt {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #777;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .trc-listing_card_date {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+        .trc-listing_card_cats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .trc-listing_card_cats span {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* ── Section Header ── */
+        .trc-section-header {
+            padding: 8rem 5vw 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .trc-section-header h1 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            margin: 0 0 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-section-header p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #777;
+            max-width: 560px;
+        }
+
+        /* ── Contact Page ── */
+        .trc-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5vw 5rem;
+        }
+        .trc-contact-item h3 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.3rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .trc-contact-item p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .trc-contact-item a {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+            padding-bottom: 2px;
+            transition: border-color 0.3s ease;
+        }
+        .trc-contact-item a:hover { border-color: rgba(0,0,0,0.6); }
+
+        /* ── Related Posts ── */
+        .trc-related {
+            background: #f7f8f9;
+            padding: 4rem 5vw;
+            margin-top: 3rem;
+        }
+        .trc-related h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.5rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .trc-related_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer ── */
+        .trc-footer {
+            background: #111;
+            color: #999;
+            padding: 3rem 5vw 2rem;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .trc-footer a { color: #ccc; text-decoration: none; }
+        .trc-footer a:hover { color: #fff; }
+
+        /* ── Services page specific ── */
+        .trc-services-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5vw 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .trc-page-hero { height: 50vh; min-height: 300px; }
+            .trc-page-hero_overlay { padding: 2rem 5vw; }
+            .trc-gallery_grid { grid-template-columns: 1fr; }
+            .trc-listing_grid { grid-template-columns: 1fr; }
+            .trc-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trc-section-header { padding-top: 5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Menu -->
+    <button class="trc-menu-btn" id="trcMenuBtn" type="button" aria-label="Menu">
+        <span class="trc-menu-btn_icon">
+            <span></span><span></span><span></span>
+        </span>
+        Menu
+    </button>
+    <div class="trc-menu-backdrop" id="trcMenuBackdrop"></div>
+    <div class="trc-menu-overlay" id="trcMenuOverlay">
+        <div class="trc-menu-content">
+            <nav>
+                <ul class="trc-menu-nav">
+                    <li><a href="../index.html">Projectos</a></li>
+                    <li><a href="../sobre-nos.html">Sobre Nos</a></li>
+                    <li><a href="../servicos.html">Servicos</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="trc-menu-divider"></div>
+            <div class="trc-menu-info">
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Contacto</div>
+                    <p>
+                        <a href="mailto:geral@tiagorcorreia.com">geral@tiagorcorreia.com</a><br>
+                        <a href="tel:+351918660664">+351 918 660 664</a>
+                    </p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Morada</div>
+                    <p>R. dos Lagares d'El-Rei 19A<br>1700-268 Lisboa</p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Redes</div>
+                    <div class="trc-menu-social">
+                        <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trc-menu-lang">
+            <a href="../projetos.html" class="is-active">PT</a>
+            <a href="https://www.tiagorcorreia.com/en/">EN</a>
+            <a href="https://www.tiagorcorreia.com/fr/">FR</a>
+        </div>
+    </div>
+
+
+    <section class="trc-page-hero">
+        <img src="../assets/images/wp-content/uploads/2024/10/tiago-r-correia-antes-comprar-terreno-principais-passos.webp" alt="LANDSCOPE: análise rápida para decisões imobiliárias seguras">
+        <div class="trc-page-hero_overlay">
+            <div>
+                <h1 class="trc-page-hero_title">LANDSCOPE: análise rápida para decisões imobiliárias seguras</h1>
+            </div>
+        </div>
+    </section>
+
+    <a href="../noticias.html" class="trc-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar as noticias
+    </a>
+
+    <article class="trc-content">
+        <div class="trc-article-meta">
+            <span class="trc-article-date">10 Dezembro 2025</span>
+            <span class="trc-article-cat">Casos de Estudo</span><span class="trc-article-cat">Técnico &amp; BIM</span>
+        </div>
+        <h4 data-start="1382" data-end="1431"><strong>1. A análise técnica rápida que dá segurança às suas decisões imobiliárias</strong></h4>
+<p data-start="1382" data-end="1431">Num mercado imobiliário cada vez mais competitivo, tomar decisões rápidas sem comprometer a segurança é fundamental. A aquisição, venda ou desenvolvimento de um imóvel exige informação fiável - e não apenas suposições. É precisamente para responder a essa necessidade que o LANDSCOPE, serviço disponível no nosso atelier, foi desenvolvido: uma solução objetiva, técnica e decisiva para quem não pode arriscar.</p>
+<p data-start="1382" data-end="1431">Em apenas 5 dias úteis, enviamos um relatório completo e claro, permitindo-lhe avançar com confiança total, evitar riscos ocultos e identificar oportunidades reais de valorização.</p>		
+		<h4 data-start="3280" data-end="3340"><strong>2. O que é o LANDSCOPE</strong></h4>
+<p>O <em>LANDSCOPE</em> é um serviço de análise urbanística, técnica e estratégica aplicado a terrenos ou edifícios. Foi pensado para:</p>
+<ul>
+<li>Investidores</li>
+<li>Promotores imobiliários</li>
+<li>Proprietários</li>
+<li>Profissionais que precisam de decisões rápidas e fundamentadas</li>
+</ul>
+<p data-start="3280" data-end="3340">O objetivo é simples: esclarecer o verdadeiro potencial de qualquer ativo imobiliário antes de avançar para a compra, venda ou desenvolvimento.</p>		
+		<h4 data-start="3280" data-end="3340"><strong>3. O que inclui o relatório LANDSCOPE</strong></h4>
+<p>Em cinco dias úteis, o cliente recebe um documento completo reunindo toda a informação crítica para a tomada de decisão. Entre os principais conteúdos, destacam-se:</p>
+<p><strong>1. Análise detalhada do PDM e regulamentos aplicáveis</strong></p>
+<p>Avaliação técnica rigorosa de todas as normas urbanísticas que condicionam ou potenciam o tipo de projeto pretendido.</p>
+<p><strong>2. Verificação de condições legais e territoriais</strong></p>
+<p>Inclui servidões, zonas protegidas, riscos ambientais, restrições de uso e qualquer elemento que possa limitar o desenvolvimento.</p>
+<p><strong>3. Enquadramento urbanístico e cálculo do potencial construtivo</strong></p>
+<p>Estimativa realista e fundamentada sobre o que é possível licenciar e construir naquele terreno ou edifício.</p>
+<p><strong>4. Identificação de riscos, oportunidades e limitações</strong></p>
+<p>Um diagnóstico claro que permite perceber o que pode valorizar ou comprometer o investimento.</p>
+<p><strong>5. Análise de viabilidade e rentabilidade</strong></p>
+<p>Indicadores úteis para investidores, ajudando a prever retornos, custos de desenvolvimento e riscos associados.</p>		
+		<h4 data-start="3280" data-end="3340"><strong>4. Como o LANDSCOPE apoia decisões imobiliárias seguras?</strong></h4>
+<p>Ao reunir legislação, diagnóstico técnico e análise estratégica num só documento, o <em>LANDSCOPE</em> torna-se uma ferramenta essencial para evitar erros e maximizar resultados. Na prática, permite:</p>
+<ul>
+<li><strong>Comprar com confiança:</strong> saiba exatamente o que pode ser licenciado, construído ou reabilitado — antes de fechar negócio.</li>
+<li><strong>Vender com argumento técnico: </strong>valorize o imóvel com dados concretos que comprovam o seu potencial urbanístico.</li>
+<li><strong>Avançar para a obra com segurança: </strong>uma visão clara do enquadramento legal protege o projeto desde o primeiro dia.</li>
+</ul>		
+		<h4 data-start="3280" data-end="3340"><strong>5. </strong><strong> Principais benefícios para investidores e promotores</strong></h4>
+<p>Entre os benefícios mais valorizados pelos clientes, o <em>LANDSCOPE</em> distingue-se ao revelar o verdadeiro potencial de qualquer terreno ou prédio logo na fase inicial, confirmar o que é efetivamente possível desenvolver de acordo com o PDM e a legislação vigente e ainda ao avaliar o risco e a rentabilidade com base em dados objetivos.</p>
+<p>Um serviço que evita surpresas desagradáveis ou custos inesperados após a compra e que garante vantagem competitiva no processo negocial e de desenvolvimento.</p>
+<p>Trata-se de uma análise rápida, técnica e fiável, que permite que decisões imobiliárias sejam tomadas com segurança e foco nos resultados.</p>		
+		<h4 data-start="3280" data-end="3340"><strong>6. O LANDSCOPE é uma ferramenta indispensável?</strong></h4>
+<p>O setor imobiliário exige decisões sólidas, e decisões sólidas exigem informação rigorosa. O<em> LANDSCOPE</em> oferece exatamente isso: transparência, precisão técnica e rapidez. Para investidores, promotores e proprietários, é uma forma clara de maximizar lucro, minimizar risco e acelerar processos.</p>
+<p>Se pretende avançar com segurança no seu próximo investimento ou projeto, este é o ponto de partida certo. Fale connosco para solicitar o seu estudo <em>LANDSCOPE</em>.</p>		
+		<h3><a href="../contactos.html"><strong>Fale connosco para mais esclarecimentos</strong></a></h3>n<div style="background:#f8f7f4;padding:40px 32px;margin:48px 0 0;border-left:4px solid #c8a96e;"><p style="font-size:18px;font-weight:700;color:#2a2a2a;margin:0 0 10px;">Análise LANDSCOPE: decisão informada em 5 dias úteis</p><p style="font-size:14px;color:#555;margin:0 0 24px;line-height:1.6;">Antes de comprar, investir ou licenciar — obtenha uma análise técnica completa de viabilidade do seu imóvel ou terreno. Metodologia exclusiva do atelier.</p><a href="../contactos.html?assunto=LANDSCOPE" style="display:inline-block;padding:12px 28px;background:#2a2a2a;color:#fff;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;margin-right:12px;">Solicitar LANDSCOPE</a><a href="../servicos.html" style="display:inline-block;padding:12px 28px;border:1px solid #c8a96e;color:#c8a96e;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;text-decoration:none;">Saber Mais</a></div>
+    </article>
+
+    <section class="trc-related">
+        <h2>Artigos Relacionados</h2>
+        <div class="trc-related_grid">
+            <a class="trc-listing_card" href="como-criar-condominios-habitacao-investimento.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2024/09/Image7-min-1.png" alt="Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">03.04.2026</div>
+                    <h3 class="trc-listing_card_title">Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos</h3>
+                    <p class="trc-listing_card_excerpt">O mercado imobiliário em Portugal em 2026 exige mais do que apenas &quot;construir e vender&quot;. Com a...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="estudo-de-vulnerabilidade-sismica.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2024/10/tiago-r-correia-estudo-vulnerabilidade-sismica.webp" alt="Estudo de Vulnerabilidade Sísmica" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">23.10.2024</div>
+                    <h3 class="trc-listing_card_title">Estudo de Vulnerabilidade Sísmica</h3>
+                    <p class="trc-listing_card_excerpt">Estudo de Avaliação de Vulnerabilidade Sísmica: Importância e AplicaçãoO Estudo de Avaliação de...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="tir-roi-promocao-imobiliaria-rentabilidade.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/04/IMG_3837.jpeg" alt="TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">02.04.2026</div>
+                    <h3 class="trc-listing_card_title">TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos TIR vs ROI — a TIR (Taxa Interna de Rentabilidade)...</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    
+    <footer class="trc-footer">
+        <span>&copy; 2014&ndash;2026 Tiago R. Correia Arquitectos</span>
+        <span>
+            <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a> &middot;
+            <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a> &middot;
+            <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+        </span>
+    </footer>
+
+    
+    <script>
+    (function() {
+        var html = document.documentElement;
+        var btn = document.getElementById('trcMenuBtn');
+        var backdrop = document.getElementById('trcMenuBackdrop');
+        var overlay = document.getElementById('trcMenuOverlay');
+        if (!btn || !overlay) return;
+        function closeMenu() { html.classList.remove('trc-menu-open'); }
+        btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
+        });
+    })();
+    </script>
+
+</body>
+</html>

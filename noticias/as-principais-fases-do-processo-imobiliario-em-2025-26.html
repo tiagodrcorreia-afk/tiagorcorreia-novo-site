@@ -1,0 +1,770 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>As Principais Fases do Processo Imobiliário em 2025/26 - Tiago R. Correia Arquitectos</title>
+    <meta name="description" content="Viabilidade, licenciamento, construção e entrega das chaves: as principais fases do processo imobiliário em Portugal 2025/26. Guia com prazos e documentação.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="As Principais Fases do Processo Imobiliário em 2025/26 - Tiago R. Correia Arquitectos">
+    <meta property="og:description" content="Viabilidade, licenciamento, construção e entrega das chaves: as principais fases do processo imobiliário em Portugal 2025/26. Guia com prazos e documentação.">
+    <meta property="og:image" content="../assets/images/wp-content/uploads/2025/11/tiago-r-correia-fases-processo-imobiliario.webp">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicons/favicon-16x16.png">
+    <link rel="stylesheet" href="../assets/styles/main.css" media="all">
+    <style>
+        /* ── TRC Static Page Styles ── */
+        *, *::before, *::after { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            color: #212122;
+            background: #fff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        a { color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* ── Menu Button ── */
+        .trc-menu-btn {
+            position: fixed;
+            top: 28px;
+            right: 32px;
+            z-index: 200;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #1a1a1a;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px 0;
+            -webkit-font-smoothing: antialiased;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+        .trc-menu-btn_icon {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3.5px;
+            width: 18px;
+            height: 14px;
+            flex-shrink: 0;
+            margin-right: 10px;
+            position: relative;
+        }
+        .trc-menu-btn_icon span {
+            display: block;
+            height: 1.5px;
+            width: 100%;
+            background: currentColor;
+            transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.25s ease;
+            transform-origin: center;
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(1) {
+            transform: translateY(3.25px) rotate(45deg);
+        }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(2) { opacity: 0; }
+        html.trc-menu-open .trc-menu-btn_icon span:nth-child(3) {
+            transform: translateY(-3.25px) rotate(-45deg);
+        }
+
+        /* ── Backdrop ── */
+        .trc-menu-backdrop {
+            position: fixed;
+            inset: 0;
+            z-index: 140;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.45s ease, visibility 0s 0.45s;
+            cursor: pointer;
+        }
+        html.trc-menu-open .trc-menu-backdrop {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.45s ease, visibility 0s 0s;
+        }
+
+        /* ── Overlay Panel ── */
+        .trc-menu-overlay {
+            position: fixed;
+            top: 0; right: 0;
+            z-index: 150;
+            width: 420px;
+            max-width: 50vw;
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: #fff;
+            transform: translateX(100%);
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1);
+            box-shadow: -20px 0 60px rgba(0,0,0,0.08);
+            overflow-y: auto;
+        }
+        html.trc-menu-open .trc-menu-overlay { transform: translateX(0); }
+
+        .trc-menu-content {
+            display: flex;
+            flex-direction: column;
+            padding: 80px 48px 48px;
+            flex: 1;
+        }
+        .trc-menu-nav {
+            list-style: none;
+            margin: 0 0 48px 0;
+            padding: 0;
+        }
+        .trc-menu-nav li { overflow: hidden; }
+        .trc-menu-nav a {
+            display: block;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            font-weight: 200;
+            letter-spacing: 0.04em;
+            line-height: 1.35;
+            color: #1a1a1a;
+            text-decoration: none;
+            transform: translateX(40px);
+            opacity: 0;
+            transition: transform 0.55s cubic-bezier(0.16,1,0.3,1), opacity 0.45s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-nav a:hover { color: #888; }
+        html.trc-menu-open .trc-menu-nav a { transform: translateX(0); opacity: 1; }
+        .trc-menu-nav li:nth-child(1) a { transition-delay: 0.10s; }
+        .trc-menu-nav li:nth-child(2) a { transition-delay: 0.15s; }
+        .trc-menu-nav li:nth-child(3) a { transition-delay: 0.20s; }
+        .trc-menu-nav li:nth-child(4) a { transition-delay: 0.25s; }
+        .trc-menu-nav li:nth-child(5) a { transition-delay: 0.30s; }
+        html:not(.trc-menu-open) .trc-menu-nav a { transition-delay: 0s; }
+
+        .trc-menu-divider {
+            width: 40px;
+            height: 1px;
+            background: #ccc;
+            margin-bottom: 32px;
+        }
+        .trc-menu-info {
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease 0.25s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.25s;
+        }
+        html.trc-menu-open .trc-menu-info { opacity: 1; transform: translateY(0); }
+        html:not(.trc-menu-open) .trc-menu-info { transition-delay: 0s; }
+        .trc-menu-info_section { margin-bottom: 28px; }
+        .trc-menu-info_label {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 8px;
+        }
+        .trc-menu-info p, .trc-menu-info a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #333;
+            text-decoration: none;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-menu-info a:hover { color: #888; }
+        .trc-menu-social { display: flex; gap: 20px; margin-top: 6px; }
+        .trc-menu-social a {
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        .trc-menu-lang {
+            display: flex;
+            gap: 16px;
+            padding: 0 48px 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        html.trc-menu-open .trc-menu-lang { opacity: 1; }
+        html:not(.trc-menu-open) .trc-menu-lang { transition-delay: 0s; }
+        .trc-menu-lang a {
+            font-family: "Maison Neue", -apple-system, "Helvetica Neue", helvetica, arial, sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .trc-menu-lang a.is-active { color: #1a1a1a; }
+        .trc-menu-lang a:hover { color: #1a1a1a; }
+        html.trc-menu-open { overflow: hidden; }
+
+        @media (max-width: 768px) {
+            .trc-menu-overlay { width: 85vw; max-width: none; }
+            .trc-menu-content { padding: 72px 28px 28px; }
+            .trc-menu-lang { padding: 0 28px 24px; }
+            .trc-menu-btn { top: 20px; right: 20px; }
+        }
+
+        /* ── Page Layout ── */
+        .trc-page-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            overflow: hidden;
+            background: #111;
+        }
+        .trc-page-hero img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .trc-page-hero_overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.5) 100%);
+            display: flex;
+            align-items: flex-end;
+            padding: 4rem 5vw;
+        }
+        .trc-page-hero_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            color: #fff;
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-page-hero_cats {
+            display: flex;
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .trc-page-hero_cat {
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.8);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 14px;
+            border-radius: 2px;
+        }
+
+        /* ── Content Area ── */
+        .trc-content {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 4rem 5vw 3rem;
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+        .trc-content h1, .trc-content h2, .trc-content h3, .trc-content h4 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            letter-spacing: 0.03em;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .trc-content h1 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+        .trc-content h2 { font-size: clamp(1.4rem, 2.5vw, 2rem); }
+        .trc-content h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); font-weight: 300; }
+        .trc-content h4 { font-size: 1.1rem; font-weight: 300; }
+        .trc-content p { margin-bottom: 1.5rem; }
+        .trc-content a { text-decoration: underline; text-underline-offset: 3px; }
+        .trc-content a:hover { opacity: 0.6; }
+        .trc-content ul, .trc-content ol { padding-left: 1.5rem; margin-bottom: 1.5rem; }
+        .trc-content li { margin-bottom: 0.5rem; }
+        .trc-content img {
+            border-radius: 2px;
+            margin: 2rem 0;
+        }
+        .trc-content blockquote {
+            border-left: 2px solid #ddd;
+            margin: 2rem 0;
+            padding: 1rem 2rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* ── Image Gallery ── */
+        .trc-gallery {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-gallery h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.4rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2rem;
+            color: #999;
+        }
+        .trc-gallery_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 12px;
+        }
+        .trc-gallery_item {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 4/3;
+        }
+        .trc-gallery_item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-gallery_item:hover img {
+            transform: scale(1.04);
+        }
+
+        /* ── Back Link ── */
+        .trc-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6em;
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 300;
+            font-size: 0.8rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #999;
+            text-decoration: none;
+            padding: 2rem 5vw;
+            transition: color 0.3s ease;
+        }
+        .trc-back:hover { color: #212122; }
+        .trc-back svg {
+            width: 16px; height: 16px;
+            stroke: currentColor; stroke-width: 1.5; fill: none;
+        }
+
+        /* ── Article Meta ── */
+        .trc-article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .trc-article-date {
+            font-size: 0.82rem;
+            color: #999;
+            letter-spacing: 0.04em;
+        }
+        .trc-article-cat {
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 3px 12px;
+            border-radius: 2px;
+            text-decoration: none !important;
+        }
+
+        /* ── Grid Listings ── */
+        .trc-listing {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 5vw 5rem;
+        }
+        .trc-listing_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .trc-listing_card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .trc-listing_card_img {
+            overflow: hidden;
+            border-radius: 2px;
+            aspect-ratio: 16/10;
+            background: #f0f0f0;
+        }
+        .trc-listing_card_img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+        }
+        .trc-listing_card:hover .trc-listing_card_img img {
+            transform: scale(1.04);
+        }
+        .trc-listing_card_body {
+            padding: 1rem 0;
+        }
+        .trc-listing_card_title {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.15rem;
+            letter-spacing: 0.02em;
+            margin: 0 0 0.5rem;
+        }
+        .trc-listing_card_excerpt {
+            font-size: 0.85rem;
+            line-height: 1.6;
+            color: #777;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .trc-listing_card_date {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-bottom: 0.3rem;
+        }
+        .trc-listing_card_cats {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .trc-listing_card_cats span {
+            font-size: 9px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #999;
+        }
+
+        /* ── Section Header ── */
+        .trc-section-header {
+            padding: 8rem 5vw 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .trc-section-header h1 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            letter-spacing: 0.06em;
+            margin: 0 0 1rem;
+            -webkit-font-smoothing: antialiased;
+        }
+        .trc-section-header p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #777;
+            max-width: 560px;
+        }
+
+        /* ── Contact Page ── */
+        .trc-contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 5vw 5rem;
+        }
+        .trc-contact-item h3 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.3rem;
+            letter-spacing: 0.04em;
+            margin-bottom: 1rem;
+        }
+        .trc-contact-item p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        .trc-contact-item a {
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+            padding-bottom: 2px;
+            transition: border-color 0.3s ease;
+        }
+        .trc-contact-item a:hover { border-color: rgba(0,0,0,0.6); }
+
+        /* ── Related Posts ── */
+        .trc-related {
+            background: #f7f8f9;
+            padding: 4rem 5vw;
+            margin-top: 3rem;
+        }
+        .trc-related h2 {
+            font-family: "Helvetica Neue", helvetica, arial, sans-serif;
+            font-weight: 200;
+            font-size: 1.5rem;
+            letter-spacing: 0.06em;
+            margin-bottom: 2.5rem;
+            text-align: center;
+        }
+        .trc-related_grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Footer ── */
+        .trc-footer {
+            background: #111;
+            color: #999;
+            padding: 3rem 5vw 2rem;
+            font-size: 0.82rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .trc-footer a { color: #ccc; text-decoration: none; }
+        .trc-footer a:hover { color: #fff; }
+
+        /* ── Services page specific ── */
+        .trc-services-page {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 5vw 5rem;
+        }
+
+        @media (max-width: 768px) {
+            .trc-page-hero { height: 50vh; min-height: 300px; }
+            .trc-page-hero_overlay { padding: 2rem 5vw; }
+            .trc-gallery_grid { grid-template-columns: 1fr; }
+            .trc-listing_grid { grid-template-columns: 1fr; }
+            .trc-contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .trc-section-header { padding-top: 5rem; }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- Menu -->
+    <button class="trc-menu-btn" id="trcMenuBtn" type="button" aria-label="Menu">
+        <span class="trc-menu-btn_icon">
+            <span></span><span></span><span></span>
+        </span>
+        Menu
+    </button>
+    <div class="trc-menu-backdrop" id="trcMenuBackdrop"></div>
+    <div class="trc-menu-overlay" id="trcMenuOverlay">
+        <div class="trc-menu-content">
+            <nav>
+                <ul class="trc-menu-nav">
+                    <li><a href="../index.html">Projectos</a></li>
+                    <li><a href="../sobre-nos.html">Sobre Nos</a></li>
+                    <li><a href="../servicos.html">Servicos</a></li>
+                    <li><a href="../noticias.html">Noticias</a></li>
+                    <li><a href="../contactos.html">Contactos</a></li>
+                </ul>
+            </nav>
+            <div class="trc-menu-divider"></div>
+            <div class="trc-menu-info">
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Contacto</div>
+                    <p>
+                        <a href="mailto:geral@tiagorcorreia.com">geral@tiagorcorreia.com</a><br>
+                        <a href="tel:+351918660664">+351 918 660 664</a>
+                    </p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Morada</div>
+                    <p>R. dos Lagares d'El-Rei 19A<br>1700-268 Lisboa</p>
+                </div>
+                <div class="trc-menu-info_section">
+                    <div class="trc-menu-info_label">Redes</div>
+                    <div class="trc-menu-social">
+                        <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a>
+                        <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="trc-menu-lang">
+            <a href="../projetos.html" class="is-active">PT</a>
+            <a href="https://www.tiagorcorreia.com/en/">EN</a>
+            <a href="https://www.tiagorcorreia.com/fr/">FR</a>
+        </div>
+    </div>
+
+
+    <section class="trc-page-hero">
+        <img src="../assets/images/wp-content/uploads/2025/11/tiago-r-correia-fases-processo-imobiliario.webp" alt="As Principais Fases do Processo Imobiliário em 2025/26">
+        <div class="trc-page-hero_overlay">
+            <div>
+                <h1 class="trc-page-hero_title">As Principais Fases do Processo Imobiliário em 2025/26</h1>
+            </div>
+        </div>
+    </section>
+
+    <a href="../noticias.html" class="trc-back">
+        <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar as noticias
+    </a>
+
+    <article class="trc-content">
+        <div class="trc-article-meta">
+            <span class="trc-article-date">3 Novembro 2025</span>
+            <span class="trc-article-cat">Investimento Imobiliário</span>
+        </div>
+        		<div class="elementor elementor-11730">
+						<section class="elementor-section elementor-top-section elementor-element elementor-element-993e49c elementor-section-full_width elementor-section-height-default elementor-section-height-default qodef-elementor-content-no qodef-elementor-column-no" data-id="993e49c" data-element_type="section" data-e-type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-99ca26b" data-id="99ca26b" data-element_type="column" data-e-type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+						<div class="elementor-element elementor-element-37a7d0b elementor-widget__width-initial elementor-widget elementor-widget-text-editor" data-id="37a7d0b" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<p data-start="662" data-end="730"><em data-start="662" data-end="730">Uma abordagem prática e integrada por Tiago R. Correia Arquitectos</em></p><p data-start="732" data-end="1118">O processo imobiliário é, por natureza, multidisciplinar. Entre o investimento, a concepção arquitectónica, o licenciamento e a execução, existe um percurso complexo que deve ser planeado com rigor e conhecimento técnico.<br data-start="953" data-end="956" />Em 2025, os desafios legais, energéticos e ambientais tornam a coordenação entre promotores, arquitectos e técnicos especializados mais determinante do que nunca.</p><p data-start="1120" data-end="1375">No atelier <strong data-start="1131" data-end="1163">Tiago R. Correia Arquitectos</strong>, adoptamos uma abordagem global: apoiamos o cliente desde a análise de viabilidade e enquadramento urbanístico até à entrega da obra, integrando arquitectura, planeamento urbano, design e acompanhamento técnico.</p>								</div>
+				</div>
+					</div>
+		</div>
+					</div>
+		</section>
+		<div class="elementor-element elementor-element-02d58f2 e-flex e-con-boxed e-con e-parent" data-id="02d58f2" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-0701fe0 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="0701fe0" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-7d04322 e-flex e-con-boxed e-con e-parent" data-id="7d04322" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-1e95465 elementor-widget elementor-widget-text-editor" data-id="1e95465" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h4 data-start="1382" data-end="1431"><strong>1. Análise inicial e enquadramento urbanístico</strong></h4><h4 data-start="1433" data-end="1466">1.1 Objectivos e estratégia</h4><p data-start="1467" data-end="1841">O primeiro passo é clarificar a intenção do projecto: habitação, turismo, comércio, reabilitação, investimento para arrendamento ou venda. A definição do objectivo orienta todas as decisões seguintes — volumetria, programa, prazos e retorno.<br data-start="1708" data-end="1711" />Nesta fase, o nosso atelier apoia o cliente com <strong data-start="1759" data-end="1786">consultoria estratégica</strong>, alinhando ambições, orçamento e contexto territorial.</p><h4 data-start="1843" data-end="1877">1.2 Leitura e análise do PDM</h4><p data-start="1878" data-end="2701">Um dos momentos mais determinantes é a <strong data-start="1917" data-end="1961">análise do Plano Diretor Municipal (PDM)</strong> e dos restantes instrumentos de gestão territorial aplicáveis (PU, PP, RAN, REN, entre outros).<br data-start="2057" data-end="2060" />É aqui que se define o que é ou não possível construir, qual o índice de edificabilidade, a altura máxima, afastamentos, uso permitido e eventuais condicionantes ambientais ou patrimoniais.<br data-start="2249" data-end="2252" />O Tiago R. Correia Arquitectos realiza esta <strong data-start="2296" data-end="2328">avaliação técnica preliminar</strong>, verificando se o terreno ou edifício respeita os parâmetros urbanísticos e identificando eventuais restrições que possam condicionar o investimento.<br data-start="2478" data-end="2481" />Este estudo é frequentemente complementado por <strong data-start="2528" data-end="2608">levantamento topográfico, análise cadastral e pareceres camarários informais</strong>, garantindo que o cliente parte para a aquisição ou desenvolvimento com segurança e clareza.</p><h4 data-start="2703" data-end="2754">1.3 Estudo de viabilidade técnica e económica</h4><p data-start="2755" data-end="3273">Com base na leitura do PDM e nas condicionantes locais, são simulados <strong data-start="2825" data-end="2866">cenários de implantação e viabilidade</strong>: número de pisos, áreas úteis, volumetrias, potenciais usos e custos estimados.<br data-start="2946" data-end="2949" />O atelier prepara <strong data-start="2967" data-end="3003">estudos prévios de enquadramento</strong> que ajudam a validar a coerência entre o investimento pretendido e as possibilidades urbanísticas do terreno.<br data-start="3113" data-end="3116" />Este serviço de pré-projecto é frequentemente decisivo para promotores e investidores que pretendem avaliar a rentabilidade antes de avançar com a aquisição.</p>								</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-14c9cb0 e-flex e-con-boxed e-con e-parent" data-id="14c9cb0" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-7dd2f70 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="7dd2f70" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+				<div class="elementor-element elementor-element-6351582 elementor-widget elementor-widget-text-editor" data-id="6351582" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h4 data-start="3280" data-end="3340"><strong>2. Concepção arquitectónica e desenvolvimento do projecto</strong></h4><h4 data-start="3342" data-end="3371">2.1 Programa e conceito</h4><p data-start="3372" data-end="3756">Com a viabilidade confirmada, inicia-se a <strong data-start="3414" data-end="3433">fase conceptual</strong>, onde o atelier desenvolve o programa funcional (tipologias, áreas, circulação, espaços exteriores) e a <strong data-start="3538" data-end="3562">visão arquitectónica</strong> do projecto.<br data-start="3575" data-end="3578" />Em 2025, a sustentabilidade, a eficiência energética e a integração no contexto urbano são premissas incontornáveis — e fazem parte da identidade do Tiago R. Correia Arquitectos.</p><h4 data-start="3758" data-end="3799">2.2 Anteprojecto e compatibilização</h4><p data-start="3800" data-end="4120">Durante esta etapa, são detalhados materiais, volumetrias e soluções construtivas, assegurando compatibilidade com o <strong data-start="3917" data-end="3977">PDM, o Regulamento Municipal de Urbanização e Edificação</strong> e as normas técnicas em vigor.<br data-start="4008" data-end="4011" />Trata-se de uma fase essencial para preparar o <strong data-start="4058" data-end="4085">licenciamento camarário</strong>, evitando surpresas e retrabalhos.</p><h4 data-start="4122" data-end="4175">2.3 Licenciamento e projectos de especialidades</h4><p data-start="4176" data-end="4641">Com o anteprojecto validado, elaboram-se os elementos técnicos e desenhos necessários ao processo de <strong data-start="4277" data-end="4306">licenciamento urbanístico</strong> junto da Câmara Municipal.<br data-start="4333" data-end="4336" />Em 2025, muitos municípios já operam em plataformas digitais (Balcão do Empreendedor, Portal Urbanismo Digital), tornando o processo mais célere, mas também mais exigente.<br data-start="4507" data-end="4510" />O atelier assegura a <strong data-start="4531" data-end="4582">coordenação entre arquitectura e especialidades</strong>, bem como a comunicação técnica com as entidades públicas.</p><hr data-start="4643" data-end="4646" /><h4 data-start="4648" data-end="4689"><strong>3. Construção e acompanhamento técnico</strong></h4><h4 data-start="4691" data-end="4726">3.1 Planeamento e contratação</h4><p data-start="4727" data-end="4973">Após a aprovação, inicia-se a <strong data-start="4757" data-end="4777">fase de execução</strong>. O Tiago R. Correia Arquitectos apoia o cliente na preparação do caderno de encargos, na análise de propostas de empreiteiros e na definição de contratos, garantindo clareza técnica e financeira.</p><h4 data-start="4975" data-end="5016">3.2 Direcção e fiscalização de obra</h4><p data-start="5017" data-end="5292">Durante a obra, o atelier assume o <strong data-start="5052" data-end="5085">acompanhamento arquitectónico</strong>, assegurando a fidelidade ao projecto, a qualidade construtiva e a conformidade com as normas.<br data-start="5180" data-end="5183" />O controlo técnico e estético nesta fase é determinante para manter a integridade do conceito arquitectónico.</p><h4 data-start="5294" data-end="5323">3.3 Recepção e pós-obra</h4><p data-start="5324" data-end="5551">Antes da entrega, é feita uma <strong data-start="5354" data-end="5405">verificação final de acabamentos e conformidade</strong>. Após a conclusão, o atelier presta <strong data-start="5442" data-end="5466">assistência pós-obra</strong> e apoio na obtenção de licenças de utilização, registos e certificações energéticas.</p><hr data-start="5553" data-end="5556" /><h4 data-start="5558" data-end="5603"><strong>4. Comercialização, gestão e ciclo de vida</strong></h4><p data-start="5605" data-end="5675">Com a obra concluída, inicia-se a fase de <strong data-start="5647" data-end="5672">valorização do activo</strong>:</p><ul><li data-start="5678" data-end="5734">Estratégia de comercialização (venda ou arrendamento);</li><li data-start="5678" data-end="5734">Apoio na comunicação visual do projecto (renders, fotografias, brochuras);</li><li data-start="5678" data-end="5734">Consultoria sobre gestão de manutenção e futuras adaptações.</li></ul><p data-start="5880" data-end="5988">A <strong data-start="5882" data-end="5911">arquitectura bem planeada</strong> traduz-se num produto imobiliário mais competitivo, eficiente e duradouro.</p><hr data-start="5990" data-end="5993" /><h4 data-start="5995" data-end="6046"><strong>5. Reflexão sobre o contexto imobiliário em 2026</strong></h4><p data-start="6048" data-end="6173">Em 2026, o sucesso de um investimento imobiliário depende de uma visão coordenada entre arquitectura, planeamento e gestão:</p><ul><li><strong data-start="6176" data-end="6209">PDM e planeamento territorial</strong> tornaram-se instrumentos centrais, exigindo leitura técnica qualificada.</li><li data-start="6287" data-end="6382"><strong data-start="6287" data-end="6331">Sustentabilidade e eficiência energética</strong> são já critérios de valorização e financiamento.</li><li data-start="6287" data-end="6382"><strong data-start="6385" data-end="6427">Digitalização dos processos camarários</strong> exige rigor documental e coordenação técnica.</li><li data-start="6287" data-end="6382"><strong data-start="6478" data-end="6510">Integração de especialidades</strong> desde o início reduz prazos e custos.</li></ul><p data-start="6552" data-end="6729">O Tiago R. Correia Arquitectos actua precisamente neste cruzamento — <strong data-start="6621" data-end="6680">entre a visão arquitectónica e a estratégia imobiliária</strong> — acompanhando cada fase com precisão e clareza.</p><hr data-start="6731" data-end="6734" /><h4 data-start="6736" data-end="6751"><strong>Conclusão</strong></h4><p data-start="6752" data-end="7170">O processo imobiliário é um percurso que começa muito antes do traço arquitectónico.<br data-start="6836" data-end="6839" />Ao integrar a <strong data-start="6853" data-end="6871">análise do PDM</strong>, o <strong data-start="6875" data-end="6900">estudo de viabilidade</strong> e o <strong data-start="6905" data-end="6931">acompanhamento técnico</strong>, o Tiago R. Correia Arquitectos garante ao cliente segurança, previsibilidade e valor acrescentado.<br data-start="7031" data-end="7034" />Cada projecto é um investimento, e cada decisão inicial, quando bem informada, traduz-se em sucesso na execução e na valorização futura.</p><p data-start="7172" data-end="7381"><strong data-start="7172" data-end="7204">Quer iniciar o seu projecto?</strong><br data-start="7204" data-end="7207" />Contacte-nos para uma reunião de enquadramento e descubra como o nosso atelier pode orientar todas as fases — desde a análise urbanística até à materialização arquitectónica.</p>								</div>
+				</div>
+				<div class="elementor-element elementor-element-c577921 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="c577921" data-element_type="widget" data-e-type="widget" data-widget_type="divider.default">
+				<div class="elementor-widget-container">
+							<div class="elementor-divider">
+			<span class="elementor-divider-separator">
+						</span>
+		</div>
+						</div>
+				</div>
+					</div>
+				</div>
+		<div class="elementor-element elementor-element-9c70f38 e-flex e-con-boxed e-con e-parent" data-id="9c70f38" data-element_type="container" data-e-type="container">
+					<div class="e-con-inner">
+				<div class="elementor-element elementor-element-0e40116 elementor-widget elementor-widget-text-editor" data-id="0e40116" data-element_type="widget" data-e-type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+									<h3><span style="text-decoration: underline;"><a href="../contactos.html"><strong>Fale connosco para mais esclarecimentos</strong></a></span></h3>								</div>
+				</div>
+					</div>
+				</div>
+				</div>
+		
+    </article>
+
+    <section class="trc-related">
+        <h2>Artigos Relacionados</h2>
+        <div class="trc-related_grid">
+            <a class="trc-listing_card" href="como-criar-condominios-habitacao-investimento.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2024/09/Image7-min-1.png" alt="Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">03.04.2026</div>
+                    <h3 class="trc-listing_card_title">Guia Estratégico 2026: Como Criar Condomínios de Habitação Lucrativos</h3>
+                    <p class="trc-listing_card_excerpt">O mercado imobiliário em Portugal em 2026 exige mais do que apenas &quot;construir e vender&quot;. Com a...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="tir-roi-promocao-imobiliaria-rentabilidade.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/04/IMG_3837.jpeg" alt="TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">02.04.2026</div>
+                    <h3 class="trc-listing_card_title">TIR e ROI na Promoção Imobiliária: Como Calcular a Rentabilidade Real de um Projecto de Construção Nova</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos TIR vs ROI — a TIR (Taxa Interna de Rentabilidade)...</p>
+                </div>
+            </a>
+            <a class="trc-listing_card" href="quer-criar-o-empreendimento-turistico.html">
+                <div class="trc-listing_card_img">
+                    <img src="../assets/images/wp-content/uploads/2026/01/unnamed-e1767533752578.jpg" alt="Quer criar um empreendimento turístico? O guia para o seu investimento" loading="lazy">
+                </div>
+                <div class="trc-listing_card_body">
+                    <div class="trc-listing_card_date">04.01.2026</div>
+                    <h3 class="trc-listing_card_title">Quer criar um empreendimento turístico? O guia para o seu investimento</h3>
+                    <p class="trc-listing_card_excerpt">Resumo Executivo · Leitura em 60 segundos Portugal é o 7.º destino mais visitado da Europa....</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    
+    <footer class="trc-footer">
+        <span>&copy; 2014&ndash;2026 Tiago R. Correia Arquitectos</span>
+        <span>
+            <a href="https://www.instagram.com/tiagorcorreia_arquitecto" target="_blank" rel="noopener">Instagram</a> &middot;
+            <a href="https://pt.linkedin.com/in/tiago-r-correia-15891528" target="_blank" rel="noopener">LinkedIn</a> &middot;
+            <a href="https://www.facebook.com/tiagorcorreia.arq/" target="_blank" rel="noopener">Facebook</a>
+        </span>
+    </footer>
+
+    
+    <script>
+    (function() {
+        var html = document.documentElement;
+        var btn = document.getElementById('trcMenuBtn');
+        var backdrop = document.getElementById('trcMenuBackdrop');
+        var overlay = document.getElementById('trcMenuOverlay');
+        if (!btn || !overlay) return;
+        function closeMenu() { html.classList.remove('trc-menu-open'); }
+        btn.addEventListener('click', function() { html.classList.toggle('trc-menu-open'); });
+        if (backdrop) backdrop.addEventListener('click', closeMenu);
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && html.classList.contains('trc-menu-open')) closeMenu();
+        });
+    })();
+    </script>
+
+</body>
+</html>
