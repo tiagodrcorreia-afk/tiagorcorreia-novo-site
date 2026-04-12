@@ -1194,12 +1194,21 @@ window._savedHeroImages.push(wrap.children[i].cloneNode(true));
             // Title word parallax
             var titleSpans = heroTitle ? heroTitle.querySelectorAll(':scope > span, :scope > .c-home-header_title_middle') : [];
 
-            // Convert vertical wheel to horizontal scroll
+            // Smooth horizontal scroll from vertical wheel
+            var targetScrollLeft = sc.scrollLeft;
+            var scrollAnimId = null;
+            function smoothScrollStep() {
+                var diff = targetScrollLeft - sc.scrollLeft;
+                if (Math.abs(diff) < 0.5) { sc.scrollLeft = targetScrollLeft; scrollAnimId = null; return; }
+                sc.scrollLeft += diff * 0.12;
+                scrollAnimId = requestAnimationFrame(smoothScrollStep);
+            }
             sc.addEventListener('wheel', function(e) {
-                if (isMobile()) return; // don't hijack wheel on mobile
+                if (isMobile()) return;
                 if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
                     e.preventDefault();
-                    sc.scrollLeft += e.deltaY;
+                    targetScrollLeft = Math.max(0, Math.min(sc.scrollWidth - sc.clientWidth, targetScrollLeft + e.deltaY * 1.2));
+                    if (!scrollAnimId) scrollAnimId = requestAnimationFrame(smoothScrollStep);
                 }
             }, { passive: false });
 
@@ -1212,34 +1221,23 @@ window._savedHeroImages.push(wrap.children[i].cloneNode(true));
                 // no-op — replaced by new zone-based detection
             }
 
-            // Blur + parallax on scroll
+            // Blur + parallax on scroll — rAF throttled
+            if (heroBg) heroBg.style.willChange = 'filter';
+            if (heroBgInner) heroBgInner.style.willChange = 'transform';
+            var heroTicking = false;
             sc.addEventListener('scroll', function() {
-                if (isMobile()) return; // no parallax on mobile
-                var scrollLeft = sc.scrollLeft;
-                var progress = Math.min(scrollLeft / heroW, 1);
-
-                // Blur: 0 -> 15px as hero scrolls out
-                if (heroBg) {
-                    heroBg.style.filter = 'blur(' + (progress * 15) + 'px)';
-                }
-
-                // Parallax: shift background image to the right (20% max)
-                if (heroBgInner) {
-                    heroBgInner.style.transform = 'translateX(' + (progress * 20) + '%)';
-                }
-
-                // Title parallax + fade handled by standalone script below
-
-                // Toggle home-header class based on hero visibility
-                if (scrollLeft < heroW * 0.5) {
-                    html.classList.add('has-home-header');
-                } else {
-                    html.classList.remove('has-home-header');
-                }
-
-                // Dynamic menu color based on surface underneath
-                updateMenuColor();
-            });
+                if (isMobile() || heroTicking) return;
+                heroTicking = true;
+                requestAnimationFrame(function() {
+                    var scrollLeft = sc.scrollLeft;
+                    var progress = Math.min(scrollLeft / heroW, 1);
+                    if (heroBg) heroBg.style.filter = 'blur(' + (progress * 15) + 'px)';
+                    if (heroBgInner) heroBgInner.style.transform = 'translate3d(' + (progress * 20) + '%,0,0)';
+                    if (scrollLeft < heroW * 0.5) { html.classList.add('has-home-header'); }
+                    else { html.classList.remove('has-home-header'); }
+                    heroTicking = false;
+                });
+            }, { passive: true });
 
             // Initial color check
             setTimeout(updateMenuColor, 100);
@@ -1267,14 +1265,19 @@ if (!words.length) return;
 var vw = window.innerWidth;
 var maxShift = [vw * 0.7, vw * 0.35, 0]; 
 var animEnd = vw * 0.7; 
+var wordTicking = false;
 sc.addEventListener('scroll', function() {
+if (wordTicking) return;
+wordTicking = true;
+requestAnimationFrame(function() {
 var scrollLeft = sc.scrollLeft;
 var progress = Math.min(scrollLeft / animEnd, 1);
 for (var i = 0; i < words.length; i++) {
-var shift = maxShift[i] * progress;
-words[i].style.transform = 'translateX(' + shift.toFixed(1) + 'px)';
+words[i].style.transform = 'translate3d(' + (maxShift[i] * progress).toFixed(1) + 'px,0,0)';
 }
+wordTicking = false;
 });
+}, { passive: true });
 }
 if (document.readyState === 'complete') {
 setTimeout(init, 900);
@@ -1321,10 +1324,12 @@ bars[i].style.transform = 'translateX(' + offset.toFixed(1) + 'px)';
 }
 }
 }
-var style = document.createElement('style');
-style.textContent = '.trc-project-bar, .trc-news_bar { transition: transform 0.15s ease-out; }';
-document.head.appendChild(style);
-sc.addEventListener('scroll', updateBars);
+var barTicking = false;
+sc.addEventListener('scroll', function() {
+if (barTicking) return;
+barTicking = true;
+requestAnimationFrame(function() { updateBars(); barTicking = false; });
+}, { passive: true });
 setTimeout(updateBars, 800);
 window.addEventListener('resize', function() {
 vw = window.innerWidth;
@@ -1410,7 +1415,12 @@ templateMenuLabel.style.setProperty('-webkit-text-fill-color', c, 'important');
 }
 setTimeout(function() { buildZones(); updateMenuColor(); }, 600);
 window.addEventListener('resize', function() { zones = null; });
-setInterval(updateMenuColor, 300);
+var menuTicking = false;
+container.addEventListener('scroll', function() {
+if (menuTicking) return;
+menuTicking = true;
+requestAnimationFrame(function() { updateMenuColor(); menuTicking = false; });
+}, { passive: true });
 })();</script>
 </body>
 </html>
