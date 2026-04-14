@@ -13622,3 +13622,143 @@ html.is-first-load .u-anim-simple {
   transition-duration:1s
 }
 
+
+/* ====================================================================
+   MVP DESIGN UPGRADE — Fase 1.1 (a11y) + 1.2 (CTA hierarchy)
+   ==================================================================== */
+
+:root{
+  --color-ink:#1a1a1a;
+  --color-ink-soft:#212122;
+  --color-paper:#fafafa;
+  --color-paper-warm:#f5f5f4;
+  --color-border-soft:rgba(0,0,0,0.08);
+  --color-border:rgba(0,0,0,0.12);
+  --color-border-strong:rgba(0,0,0,0.3);
+  --color-overlay-25:rgba(0,0,0,0.25);
+  --color-overlay-55:rgba(0,0,0,0.55);
+  --color-overlay-65:rgba(0,0,0,0.65);
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+  --ease-standard:cubic-bezier(0.25,0.46,0.45,0.94);
+  --dur-fast:160ms;
+  --dur-base:280ms;
+  --dur-slow:560ms;
+}
+
+/* Fase 1.1 — Accessibility: focus-visible + prefers-reduced-motion */
+*:focus{outline:none}
+*:focus-visible{
+  outline:2px solid var(--color-ink);
+  outline-offset:3px;
+  border-radius:2px;
+  transition:outline-offset 120ms ease;
+}
+.c-home-header *:focus-visible,
+.trc-cta-final *:focus-visible,
+.trc-menu-overlay *:focus-visible,
+.c-project-hero *:focus-visible{
+  outline-color:var(--color-paper);
+}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.01ms !important;
+    scroll-behavior:auto !important;
+  }
+  a,button{transition:color 120ms ease, opacity 120ms ease !important}
+}
+
+/* Fase 1.2 — CTA monochromatic hierarchy */
+.trc-btn--primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  min-height:56px;
+  padding:0 36px;
+  background:var(--color-ink);
+  color:var(--color-paper);
+  border:1px solid var(--color-ink);
+  font-size:0.82rem;
+  font-weight:500;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background var(--dur-base) var(--ease-out),
+             color var(--dur-base) var(--ease-out),
+             border-color var(--dur-base) var(--ease-out),
+             transform var(--dur-base) var(--ease-out);
+}
+.trc-btn--primary::after{
+  content:"\2192";
+  margin-left:4px;
+  transition:transform var(--dur-base) var(--ease-out);
+}
+.trc-btn--primary:hover{
+  background:var(--color-paper);
+  color:var(--color-ink);
+  border-color:var(--color-ink);
+}
+.trc-btn--primary:hover::after{transform:translateX(6px)}
+
+/* Light variant — over dark backgrounds */
+.trc-btn--primary-light{
+  background:var(--color-paper);
+  color:var(--color-ink);
+  border:1px solid var(--color-paper);
+}
+.trc-btn--primary-light:hover{
+  background:transparent;
+  color:var(--color-paper);
+  border-color:var(--color-paper);
+}
+
+.trc-btn--ghost{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  min-height:48px;
+  padding:0 28px;
+  background:transparent;
+  color:var(--color-ink);
+  border:1px solid var(--color-ink);
+  font-size:0.78rem;
+  font-weight:500;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background var(--dur-base) var(--ease-out),
+             color var(--dur-base) var(--ease-out);
+}
+.trc-btn--ghost:hover{
+  background:var(--color-ink);
+  color:var(--color-paper);
+}
+
+.trc-btn--ghost-light{
+  color:var(--color-paper);
+  border-color:var(--color-paper);
+}
+.trc-btn--ghost-light:hover{
+  background:var(--color-paper);
+  color:var(--color-ink);
+}
+
+/* Tap target hygiene — menu social & lang */
+.trc-menu-social a,
+.trc-menu-lang a{
+  display:inline-flex;
+  align-items:center;
+  min-height:44px;
+  min-width:44px;
+  padding:0 12px;
+}
+@media (max-width:768px){
+  .trc-menu-social a,
+  .trc-menu-lang a{min-height:48px;padding:0 16px}
+}
