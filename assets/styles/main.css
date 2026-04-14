@@ -139,3 +139,21 @@
   .trc-menu-social a,
   .trc-menu-lang a{min-height:48px;padding:0 16px}
 }
+
+/* Fase 1.3 — Overlay contraste hero / project hero */
+.c-home-header{position:relative}
+.c-home-header::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.35) 0%,rgba(0,0,0,0.15) 40%,rgba(0,0,0,0.55) 100%);pointer-events:none;z-index:3}
+.c-home-header_title,.c-home-header_subtitle,.c-home-header_content,.c-home-header_footer{position:relative;z-index:4}
+.c-project-hero{position:relative}
+.c-project-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.25) 0%,rgba(0,0,0,0.1) 45%,rgba(0,0,0,0.5) 100%);pointer-events:none;z-index:3}
+.c-project-hero_title,.c-project-hero_subtitle,.c-project-hero_content,.c-project-hero_footer{position:relative;z-index:4}
+
+/* Fase 1.4 — Tap target menu button 44x44 */
+.trc-menu-btn{min-height:44px !important;min-width:44px !important;display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:8px;padding:0 14px !important}
+
+/* Fase 1.5 — Unificar backdrop-filter 30px */
+.trc-menu-backdrop{backdrop-filter:blur(30px) saturate(1.4) !important;-webkit-backdrop-filter:blur(30px) saturate(1.4) !important}
+
+/* Fase 1.6 — Posição do botão menu unificada */
+.trc-menu-btn{position:fixed !important;top:24px !important;right:24px !important;z-index:200}
+@media (min-width:768px){.trc-menu-btn{top:28px !important;right:32px !important}}
